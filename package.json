@@ -1,5 +1,5 @@
 {
-  "name": "nextfy",
+  "name": "next-shopify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,10 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "graphql-codegen": "graphql-codegen",
-    "prebuild": "graphql-codegen",
-    "predev": "graphql-codegen",
-    "prestart": "graphql-codegen"
+    "generate": "graphql-codegen",
+    "prebuild": "generate",
+    "predev": "generate",
+    "prestart": "generate"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
@@ -31,7 +31,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@shopify/api-codegen-preset": "^1.0.1",
+    "@graphql-codegen/cli": "^5.0.3",
     "@types/node": "22.8.1",
     "@types/react": "^18.3.12",
     "commitizen": "^4.3.1",
@@ -44,7 +44,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.6.3"
   },
   "config": {
     "commitizen": {

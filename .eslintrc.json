@@ -17,6 +17,5 @@
       }
     ]
   },
-  "ignorePatterns": ["lib/shopify/types"]
+  "ignorePatterns": ["lib/shopify/graphql/generated"]
 }
-

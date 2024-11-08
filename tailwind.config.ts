@@ -21,6 +21,9 @@ const config: Config = {
         },
         wrapper: '81.25rem',
       },
+      fontFamily: {
+        'geist-sans': 'var(--font-geist-sans)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

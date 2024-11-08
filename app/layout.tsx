@@ -1,9 +1,14 @@
 import '@/app/globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { ReactNode } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100, 200, 300, 400, 500, 600, 700, 800, 900',
+})
+
 const { SITE_NAME } = process.env
 
 export const metadata: Metadata = {
@@ -18,7 +23,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.className}`}>{children}</body>
+      <body className={geistSans.variable}>{children}</body>
     </html>
   )
 }

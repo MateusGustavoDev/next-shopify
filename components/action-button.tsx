@@ -7,7 +7,7 @@ const button = tv({
   base: 'w-max gap-2 aria-disabled:pointer-events-none flex justify-center items-center',
   variants: {
     color: {
-      primary: 'bg-black text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
+      primary: 'bg-blue-600 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
     },
     shape: {
       circle: 'rounded-full',

@@ -37,7 +37,7 @@ export function SelectItemQuantity(props: EditItemQuantityProps) {
   const handleDecrementQuantity = handleUpdateItemQuantity.bind(null, 'minus')
 
   return (
-    <div className="mt-2 flex justify-center gap-3 border border-black py-1">
+    <div className="mt-2 flex h-9 w-max items-center justify-center gap-3 rounded-full border border-neutral-800 bg-neutral-900 px-2">
       <form action={handleDecrementQuantity} className="flex items-center">
         <Button type="minus" />
       </form>
@@ -62,9 +62,9 @@ export function Button({ type, disabled }: ButtonProps) {
   return (
     <button
       aria-disabled={pending || disabled}
-      className="aria-disabled:pointer-events-none aria-disabled:text-neutral-400"
+      className="flex h-5 w-5 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-700 aria-disabled:pointer-events-none aria-disabled:text-neutral-400"
     >
-      {type === 'minus' ? <MinusIcon size={20} /> : <PlusIcon size={20} />}
+      {type === 'minus' ? <MinusIcon className="w-4" /> : <PlusIcon className="w-4" />}
     </button>
   )
 }

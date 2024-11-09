@@ -1,9 +1,27 @@
-import { ProductFragment } from '../types/storefront.generated'
-import { Image, Maybe, MoneyV2, PageInfo, ProductOption, SelectedOption } from '../types/storefront.types'
+import {
+  CurrencyCode,
+  Image,
+  Maybe,
+  MoneyV2,
+  PageInfo,
+  ProductFragment,
+  ProductOption,
+  SelectedOption,
+} from '../graphql/generated'
 
 export type ProductType = ProductFragment
 
-export type ProductOptionType = Pick<ProductOption, 'id' | 'name' | 'values'>
+export type ProductOptionType = {
+  id: string
+  name: string
+  optionValues: Array<{
+    id: string
+    name: string
+    swatch?: {
+      color?: any | null
+    } | null
+  }>
+}
 
 export type ImageType = Pick<Image, 'url' | 'altText' | 'height' | 'width'>
 
@@ -11,12 +29,24 @@ export type PageInfoType = Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage' | 'e
 
 export type ProductVariantType = {
   id: string
-  availableForSale: boolean
   title: string
-  quantityAvailable?: Maybe<number> | undefined
-  selectedOptions: Pick<SelectedOption, 'name' | 'value'>[]
-  price: Pick<MoneyV2, 'amount' | 'currencyCode'>
-  image?: Maybe<Pick<Image, 'url'>>
+  availableForSale: boolean
+  quantityAvailable?: number | null
+  selectedOptions: Array<{
+    name: string
+    value: string
+  }>
+  price: {
+    amount: any
+    currencyCode: CurrencyCode
+  }
+  compareAtPrice?: {
+    amount: any
+    currencyCode: CurrencyCode
+  } | null
+  image?: {
+    url: any
+  } | null
 }
 
 export type CollectionProductType = {

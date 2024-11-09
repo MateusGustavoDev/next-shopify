@@ -1,7 +1,7 @@
 'use client'
-import { DEFAULT_OPTION } from '@/lib/constants'
 import { ProductOptionType, ProductVariantType } from '@/lib/shopify/fetch/types'
-import { formatPriceToBrl } from '@/lib/utils'
+import { calculateDiscount, formatPriceToBrl } from '@/lib/utils'
+import { ArrowDown, ChevronDown } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 
 interface PriceProps {
@@ -18,17 +18,11 @@ export function Price({ amount, variants, options }: PriceProps) {
   const searchParams = useSearchParams()
   let price: string
 
-  const firstVariantIsDefault = Boolean(
-    options.find((option) => option.name === 'Title' && option.values[0] === DEFAULT_OPTION),
-  )
-
-  if (firstVariantIsDefault) price = amount
-
   const paramsObj: ParamsObj = {}
 
   options.forEach((option) => {
     const paramValue = searchParams.get(option.name.toLowerCase())
-    if (paramValue && option.values.includes(paramValue)) {
+    if (paramValue && option.optionValues.some((option) => option.name === paramValue)) {
       paramsObj[option.name] = paramValue
     }
   })
@@ -42,8 +36,13 @@ export function Price({ amount, variants, options }: PriceProps) {
   price = matchedVariant ? matchedVariant.price.amount : amount
 
   return (
-    <div>
-      <span className="text-3xl font-bold tablet:text-xl">{formatPriceToBrl(price)}</span>
+    <div className="flex gap-2">
+      <span className="text-2xl font-semibold text-neutral-300 tablet:text-xl">{formatPriceToBrl(price)}</span>
+      {matchedVariant?.compareAtPrice?.amount > price && (
+        <span className="text-sm font-semibold text-neutral-400 line-through">
+          {formatPriceToBrl(matchedVariant?.compareAtPrice?.amount)}
+        </span>
+      )}
     </div>
   )
 }

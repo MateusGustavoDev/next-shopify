@@ -1,7 +1,7 @@
 'use server'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { getCustomerInfoQuery, getCustomerOrdersQuery } from '@/lib/shopify/graphql/queries/customer'
-import { CustomerMetafieldsQuery, GetCustomerOrdersQuery } from '@/lib/shopify/types/storefront.generated'
+import { CustomerMetafieldsQuery, GetCustomerOrdersQuery } from '@/lib/shopify/graphql/generated'
 import { getCustomerAccessToken } from './auth/session'
 
 type GetCustomerOrdersAction = {

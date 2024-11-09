@@ -24,7 +24,7 @@ export async function CartModal() {
               {cart.totalQuantity}
             </div>
           )}
-          <ShoppingBag size={24} />
+          <ShoppingBag className="w-7 text-neutral-400 hover:text-white" />
         </button>
       </SheetTrigger>
       <SheetContent className="w-full max-w-[400px] border-black bg-white py-4">

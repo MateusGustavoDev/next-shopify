@@ -2,23 +2,26 @@
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { SearchProductsType } from '@/lib/shopify/fetch/types'
 import { searchProductsQuery } from '@/lib/shopify/graphql/queries/products'
-import { SearchProductsQuery } from '@/lib/shopify/types/storefront.generated'
+import { SearchProductsQuery } from '@/lib/shopify/graphql/generated'
 import { removeEdgesAndNodes } from '@/lib/utils'
 
 type SearchProductsAction = {
   query: string
   cursor?: string
+  numOfResults?: number
 }
 
 export async function searchProductsAction({
   query,
   cursor,
+  numOfResults,
 }: SearchProductsAction): Promise<SearchProductsType | undefined> {
   const { data, errors } = await shopifyFetch<SearchProductsQuery>({
     query: searchProductsQuery,
     variables: {
       query: query,
       cursor: cursor,
+      numOfResults: numOfResults ? numOfResults : 5,
     },
   })
 

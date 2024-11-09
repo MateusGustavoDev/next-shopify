@@ -50,7 +50,9 @@ export function AddToCartButton({ variants, availableForSale }: AddToCartProps) 
 
   return (
     <form action={handleAddProductToCart} className="w-full">
-      <ActionButton full>Adicionar ao carrinho</ActionButton>
+      <ActionButton full shape="circle">
+        Adicionar ao carrinho
+      </ActionButton>
     </form>
   )
 }

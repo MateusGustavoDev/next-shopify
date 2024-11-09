@@ -31,8 +31,8 @@ export const getProductByHandleQuery = /* GraphQL */ `
 `
 
 export const searchProductsQuery = /* GraphQL */ `
-  query searchProducts($query: String!, $cursor: String) {
-    search(query: $query, first: 5, types: PRODUCT, after: $cursor) {
+  query searchProducts($query: String!, $cursor: String, $numOfResults: Int) {
+    search(query: $query, first: $numOfResults, types: PRODUCT, after: $cursor) {
       edges {
         node {
           ...Product

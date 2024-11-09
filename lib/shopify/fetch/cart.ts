@@ -9,7 +9,7 @@ import {
   CartQueryQuery,
   CreateCartMutation,
   EditCartItemsMutation,
-} from '../types/storefront.generated'
+} from '../graphql/generated/storefront.generated'
 
 export async function createCart(): Promise<CartType | undefined> {
   const { data, errors } = await shopifyFetch<CreateCartMutation>({ query: createCartMutation })

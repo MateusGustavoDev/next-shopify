@@ -16,6 +16,10 @@ export const productVariantFragment = /* GraphQL */ `
           amount
           currencyCode
         }
+        compareAtPrice {
+          amount
+          currencyCode
+        }
         image {
           url
         }
@@ -35,7 +39,13 @@ export const productFragment = /* GraphQL */ `
     options {
       id
       name
-      values
+      optionValues {
+        id
+        name
+        swatch {
+          color
+        }
+      }
     }
     priceRange {
       maxVariantPrice {

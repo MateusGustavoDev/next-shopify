@@ -3,17 +3,18 @@ import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { CollectionProductType, ProductType } from '@/lib/shopify/fetch/types'
 import { removeEdgesAndNodes } from '@/lib/utils'
 import { TAGS } from '@/lib/constants'
-import { PageInfo } from '@/lib/shopify/types/storefront.types'
+import {
+  GetCollectionProductsQuery,
+  GetProductByHandleQuery,
+  GetProductByHandleQueryVariables,
+  GetProductsAndVariantsQuery,
+  PageInfo,
+} from '@/lib/shopify/graphql/generated'
 import {
   getAllProductsQuery,
   getCollectionProductsQuery,
   getProductByHandleQuery,
 } from '@/lib/shopify/graphql/queries/products'
-import {
-  GetCollectionProductsQuery,
-  GetProductByHandleQuery,
-  GetProductsAndVariantsQuery,
-} from '@/lib/shopify/types/storefront.generated'
 
 type GetCollectionProducts = {
   collection: string

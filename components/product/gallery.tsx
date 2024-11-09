@@ -32,7 +32,7 @@ export function Gallery({ images, options, title }: GalleryProps) {
   const imageIndex = imageSearchParam ? parseInt(imageSearchParam) : 0
 
   return (
-    <div className="relative flex h-max w-full max-w-[700px] flex-col items-center justify-center border border-black p-10 tablet:p-4">
+    <div className="relative flex h-max w-full flex-col items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900 p-10 tablet:p-4">
       <div className="relative aspect-[700/600] w-full">
         <Image
           src={productImages[imageIndex >= productImages.length || imageIndex < 0 ? 0 : imageIndex].url}

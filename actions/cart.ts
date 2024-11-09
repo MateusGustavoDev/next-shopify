@@ -4,7 +4,7 @@ import { addCartLine, createCart, updateCart } from '@/lib/shopify/fetch/cart'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { ActionStateType, CartType } from '@/lib/shopify/fetch/types'
 import { removeFromCartMutation } from '@/lib/shopify/graphql/mutations/cart'
-import { RemoveFromCartMutation } from '@/lib/shopify/types/storefront.generated'
+import { RemoveFromCartMutation } from '@/lib/shopify/graphql/generated'
 import { revalidateTag } from 'next/cache'
 import { cookies } from 'next/headers'
 

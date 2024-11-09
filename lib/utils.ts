@@ -3,7 +3,7 @@ import { ReadonlyURLSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { ProductVariantType } from './shopify/fetch/types'
 import { DEFAULT_OPTION } from './constants'
-import { SelectedOption } from './shopify/types/storefront.types'
+import { SelectedOption } from './shopify/graphql/generated/storefront.types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -16,7 +16,7 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
   return `${pathname}${queryString}`
 }
 
-export function formatPriceToBrl(price: string): string {
+export function formatPriceToBrl(price: string | number): string {
   const priceNumber = Number(price)
   return priceNumber.toLocaleString('pt-BR', {
     style: 'currency',
@@ -45,6 +45,11 @@ export function productFirstVariantUrl(variants: ProductVariantType[], productHa
     .join('&')
 
   return `/product/${productHandle}?${queryParams}`
+}
+
+export function calculateDiscount(price1: number, price2: number): number {
+  const discount = ((price1 - price2) / price1) * 100
+  return Math.abs(discount)
 }
 
 type Connection<T> = {

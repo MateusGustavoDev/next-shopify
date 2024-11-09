@@ -1,12 +1,14 @@
 'use client'
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog'
-import { LoaderCircle, SearchIcon } from 'lucide-react'
+import { LoaderCircle, Search, SearchIcon, X } from 'lucide-react'
 import { FormEvent, useEffect, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { ProductType } from '@/lib/shopify/fetch/types'
-import { productFirstVariantUrl, removeEdgesAndNodes } from '@/lib/utils'
+import { formatPriceToBrl, productFirstVariantUrl, removeEdgesAndNodes } from '@/lib/utils'
 import { searchProductsAction } from '@/actions/search'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import { DEFAULT_OPTION } from '@/lib/constants'
 
 export function SearchModal() {
   const [inputValue, setInputValue] = useState('')
@@ -25,7 +27,7 @@ export function SearchModal() {
       const timeoutId = setTimeout(async () => {
         setSearchResults(null)
         startTransition(async () => {
-          const products = await searchProductsAction({ query: inputValue })
+          const products = await searchProductsAction({ query: inputValue, numOfResults: 4 })
           if (products) {
             setSearchResults(products.products)
           }
@@ -59,83 +61,116 @@ export function SearchModal() {
     router.push(inputValue ? `/search?query=${inputValue}` : '/search')
   }
 
-  function handleClearRecentSearches() {
-    localStorage.setItem('recentSearches', JSON.stringify([]))
-    setRecentSearches([])
+  function handleClearRecentSearch(search: string) {
+    let recentSearches: string[] = JSON.parse(localStorage.getItem('recentSearches') || '[]')
+    const filteredSearches = recentSearches.filter((item) => item !== search)
+
+    localStorage.setItem('recentSearches', JSON.stringify(filteredSearches))
+    setRecentSearches(filteredSearches)
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
       <DialogTrigger asChild>
         <button aria-label="Pesquisar produto" className="outline-none">
-          <SearchIcon size={24} />
+          <SearchIcon className="w-7 text-neutral-400 hover:text-white" />
         </button>
       </DialogTrigger>
-      <DialogContent className="absolute left-1/2 top-20 z-50 w-full max-w-[700px] -translate-x-1/2 translate-y-0 flex-col bg-white p-6">
-        <DialogHeader className="mb-4">
+      <DialogContent className="fixed left-1/2 top-20 z-50 w-full max-w-[700px] -translate-x-1/2 translate-y-0 gap-4 border-neutral-800 bg-neutral-900 p-6">
+        <DialogHeader className="mb-2">
           <DialogTitle>Pesquisar produtos</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
-          <div className="relative flex w-full">
+          <div className="relative flex w-full items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-900 px-4 focus-within:border-neutral-700">
+            <Search className="w-5 text-neutral-400" />
             <input
-              placeholder="Nome do produto"
+              placeholder="Pesquise por modelo ou marca"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full border border-zinc-600 py-2 pl-4"
+              className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-neutral-400"
             />
-            <button
-              type="button"
-              data-active={inputValue !== ''}
-              onClick={() => setInputValue('')}
-              className="absolute right-4 top-1/2 hidden -translate-y-1/2 data-[active=true]:block"
-            >
-              X
-            </button>
+            {isPending ? (
+              <LoaderCircle className="w-7 animate-spin text-neutral-400" />
+            ) : (
+              <button
+                type="button"
+                data-active={inputValue !== ''}
+                onClick={() => setInputValue('')}
+                className="absolute right-4 top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700 data-[active=true]:flex"
+              >
+                <X className="w-4 text-neutral-400" />
+              </button>
+            )}
           </div>
         </form>
-        <ul className="my-6 flex flex-col gap-2">
-          {isPending && <LoaderCircle className="animate-spin" />}
-          {searchResults && searchResults.length <= 0 && <span>Nenhum resultado encontrado</span>}
+        <ul className="flex flex-col gap-2">
+          {searchResults && searchResults.length <= 0 && (
+            <span className="text-neutral-400">Nenhum resultado encontrado</span>
+          )}
           {searchResults?.map((product) => {
             const productUrl = productFirstVariantUrl(removeEdgesAndNodes(product.variants), product.handle)
+            const firstVariant = product.variants.edges[0].node
 
             return (
-              <li key={product.id}>
+              <li key={product.id} className="rounded-xl bg-black/30 p-4 py-4 hover:bg-black/50">
                 <DialogClose asChild>
-                  <Link href={productUrl} className="hover:underline">
-                    {product.title}
+                  <Link href={productUrl} className="flex w-full justify-between">
+                    <div className="flex gap-3 text-sm">
+                      <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-md border border-neutral-700 bg-neutral-800">
+                        <Image
+                          src={firstVariant.image?.url}
+                          fill
+                          alt={product.title}
+                          style={{ objectFit: 'contain' }}
+                          className="p-1"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <p className="font-medium">{product.title}</p>
+                        {firstVariant.title !== DEFAULT_OPTION && (
+                          <p className="text-xs text-neutral-400">{firstVariant.title}</p>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-sm font-medium text-neutral-300">
+                      {formatPriceToBrl(firstVariant.price.amount)}
+                    </p>
                   </Link>
                 </DialogClose>
               </li>
             )
           })}
         </ul>
-        {searchResults && searchResults.length >= 5 && (
+        {searchResults && searchResults.length >= 4 && (
           <div className="flex w-full justify-end">
             <DialogClose asChild>
-              <Link href={`/search?query=${inputValue}`} className="hover:underline">
-                Ver todos: <strong>{inputValue}</strong>
+              <Link href={`/search?query=${inputValue}`} className="text-sm text-neutral-400 hover:text-white">
+                Todos resultados
               </Link>
             </DialogClose>
           </div>
         )}
-        {recentSearches && recentSearches.length > 0 && (
+        {recentSearches && recentSearches.length > 0 && inputValue === '' && (
           <div className="flex flex-col gap-4">
-            <div className="flex w-full max-w-[300px] items-center gap-4">
-              <span className="text-sm">Pesquisas recentes</span>
-              <button onClick={handleClearRecentSearches} className="border border-black px-2 text-xs">
-                Limpar
-              </button>
-            </div>
+            <span className="text-sm font-semibold">Recentes</span>
             <ul className="flex flex-col gap-2">
               {recentSearches.map((item, index) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  className="group flex w-full items-center justify-between rounded-md bg-neutral-800 px-3 text-neutral-400"
+                >
                   <DialogClose asChild>
-                    <Link href={`/search?query=${item}`} className="flex items-center gap-2 text-sm hover:underline">
+                    <Link
+                      href={`/search?query=${item}`}
+                      className="flex w-full items-center gap-2 py-4 text-sm hover:text-blue-600"
+                    >
                       <SearchIcon size={14} />
                       {item}
                     </Link>
                   </DialogClose>
+                  <button onClick={() => handleClearRecentSearch(item)} className="p-1 hover:text-red-400">
+                    <X className="w-5" />
+                  </button>
                 </li>
               ))}
             </ul>

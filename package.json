@@ -9,9 +9,9 @@
     "lint": "next lint",
     "prepare": "husky",
     "generate": "graphql-codegen",
-    "prebuild": "generate",
-    "predev": "generate",
-    "prestart": "generate"
+    "predev": "graphql-codegen",
+    "prestart": "graphql-codegen",
+    "prebuild": "graphql-codegen"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",

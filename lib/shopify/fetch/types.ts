@@ -49,7 +49,7 @@ export type ProductVariantType = {
   } | null
 }
 
-export type CollectionProductType = {
+export type CollectionProductsType = {
   title: string
   products: ProductType[]
   pageInfo: PageInfoType

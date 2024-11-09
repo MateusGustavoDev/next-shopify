@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { productFirstVariantUrl, formatPriceToBrl, removeEdgesAndNodes, calculateDiscount } from '@/lib/utils'
+import { formatPriceToBrl, calculateDiscount, productVariantUrl } from '@/lib/utils'
 import { getCollectionProducts } from '@/actions/products'
-import { ArrowDown, Flame } from 'lucide-react'
+import { ChevronDown, Flame } from 'lucide-react'
 import { DEFAULT_OPTION } from '@/lib/constants'
 
 interface CollectionProps {
@@ -19,7 +19,7 @@ export async function Carousel({ collection }: CollectionProps) {
       <div className="item flex w-full items-center justify-between">
         <div className="flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-4 py-2">
           <Flame className="w-5" />
-          <span className="w-max text-base font-semibold mobile:text-base">{data.title}</span>
+          <p className="w-max text-base font-semibold mobile:text-base">{data.title}</p>
         </div>
         <Link
           href={`/collections/${data.title.toLowerCase()}`}
@@ -31,9 +31,9 @@ export async function Carousel({ collection }: CollectionProps) {
       <ul className="flex w-full gap-4">
         {data.products.map((product) => {
           const firstVariant = product.variants.edges[0].node
-          const price = firstVariant.price
-          const compareAtPrice = firstVariant.compareAtPrice
-          const productUrl = productFirstVariantUrl(removeEdgesAndNodes(product.variants), product.handle)
+          const price = firstVariant.price.amount as string
+          const compareAtPrice = firstVariant.compareAtPrice?.amount as string | null
+          const productUrl = productVariantUrl(firstVariant.selectedOptions, product.handle)
 
           return (
             <li key={product.id} className="relative w-[240px]">
@@ -49,24 +49,24 @@ export async function Carousel({ collection }: CollectionProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-2 py-2">
-                  <span className="flex w-full text-wrap font-medium">{product.title}</span>
+                  <p className="flex w-full text-wrap font-medium">{product.title}</p>
                   {firstVariant.title !== DEFAULT_OPTION && (
-                    <span className="text-xs text-neutral-400">{firstVariant.title}</span>
+                    <p className="text-xs text-neutral-400">{firstVariant.title}</p>
                   )}
                   <div className="flex w-full gap-2">
-                    <span className="text-sm font-medium">{formatPriceToBrl(price.amount)}</span>
-                    {compareAtPrice?.amount > price.amount && (
-                      <span className="text-xs font-medium text-neutral-300 line-through">
-                        {formatPriceToBrl(compareAtPrice?.amount)}
-                      </span>
+                    <p className="text-sm font-medium">{formatPriceToBrl(price)}</p>
+                    {compareAtPrice && compareAtPrice > price && (
+                      <p className="text-xs font-medium text-neutral-300 line-through">
+                        {formatPriceToBrl(compareAtPrice)}
+                      </p>
                     )}
                   </div>
                 </div>
               </Link>
-              {compareAtPrice?.amount > price.amount && (
-                <div className="absolute left-3 top-3 flex w-max items-center gap-1 rounded-full bg-blue-600 px-2 text-xs font-medium text-white">
-                  <ArrowDown className="w-4" />
-                  {`${calculateDiscount(price.amount, compareAtPrice?.amount).toFixed(0)}%`}
+              {compareAtPrice && compareAtPrice > price && (
+                <div className="absolute left-3 top-3 flex w-max items-center rounded-full bg-blue-600 px-2 text-xs font-semibold text-white">
+                  <ChevronDown className="w-5" />
+                  {`${calculateDiscount(price, compareAtPrice)}%`}
                 </div>
               )}
             </li>

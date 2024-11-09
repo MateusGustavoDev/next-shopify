@@ -1,9 +1,8 @@
 import { clsx, type ClassValue } from 'clsx'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
-import { ProductVariantType } from './shopify/fetch/types'
+import { SelectedOptionsType } from './shopify/fetch/types'
 import { DEFAULT_OPTION } from './constants'
-import { SelectedOption } from './shopify/graphql/generated/storefront.types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -24,18 +23,10 @@ export function formatPriceToBrl(price: string | number): string {
   })
 }
 
-export function productFirstVariantUrl(variants: ProductVariantType[], productHandle: string) {
-  const firstVariant = variants[0]
+export function productVariantUrl(selectedOptions: SelectedOptionsType, productHandle: string) {
+  if (selectedOptions.length === 1 && selectedOptions[0].value === DEFAULT_OPTION) return `/product/${productHandle}`
 
-  const firstVariantIsDefault = Boolean(
-    firstVariant.selectedOptions.find(
-      (option: SelectedOption) => option.name === 'Title' && option.value === DEFAULT_OPTION,
-    ),
-  )
-
-  if (firstVariantIsDefault) return `/product/${productHandle}`
-
-  const queryParams = firstVariant.selectedOptions
+  const queryParams = selectedOptions
     .map((option) => {
       const paramName = option.name.toLowerCase()
       let paramValue = encodeURIComponent(option.value)
@@ -47,9 +38,12 @@ export function productFirstVariantUrl(variants: ProductVariantType[], productHa
   return `/product/${productHandle}?${queryParams}`
 }
 
-export function calculateDiscount(price1: number, price2: number): number {
-  const discount = ((price1 - price2) / price1) * 100
-  return Math.abs(discount)
+export function calculateDiscount(price1: number | string, price2: number | string): string {
+  const price1Number = Number(price1)
+  const price2Number = Number(price2)
+
+  const discount = ((price1Number - price2Number) / price1Number) * 100
+  return Math.abs(discount).toFixed(0)
 }
 
 type Connection<T> = {

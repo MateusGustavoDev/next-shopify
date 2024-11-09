@@ -1,13 +1,4 @@
-import {
-  CurrencyCode,
-  Image,
-  Maybe,
-  MoneyV2,
-  PageInfo,
-  ProductFragment,
-  ProductOption,
-  SelectedOption,
-} from '../graphql/generated'
+import { CurrencyCode, Image, Maybe, MoneyV2, PageInfo, ProductFragment, SelectedOption } from '../graphql/generated'
 
 export type ProductType = ProductFragment
 
@@ -26,6 +17,11 @@ export type ProductOptionType = {
 export type ImageType = Pick<Image, 'url' | 'altText' | 'height' | 'width'>
 
 export type PageInfoType = Pick<PageInfo, 'hasNextPage' | 'hasPreviousPage' | 'endCursor' | 'startCursor'>
+
+export type SelectedOptionsType = {
+  name: string
+  value: string
+}[]
 
 export type ProductVariantType = {
   id: string

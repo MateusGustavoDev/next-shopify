@@ -37,7 +37,7 @@ export function SelectItemQuantity(props: EditItemQuantityProps) {
   const handleDecrementQuantity = handleUpdateItemQuantity.bind(null, 'minus')
 
   return (
-    <div className="mt-2 flex h-9 w-max items-center justify-center gap-3 rounded-full border border-neutral-800 bg-neutral-900 px-2">
+    <div className="mt-2 flex h-9 w-[88px] items-center justify-center gap-3 rounded-full border border-neutral-800 bg-neutral-900 px-2">
       <form action={handleDecrementQuantity} className="flex items-center">
         <Button type="minus" />
       </form>
@@ -57,7 +57,7 @@ interface ButtonProps {
 export function Button({ type, disabled }: ButtonProps) {
   const { pending } = useFormStatus()
 
-  if (pending) return <LoaderCircle className="h-4 w-4 animate-spin" />
+  if (pending) return <LoaderCircle className="w-5 animate-spin text-neutral-400" />
 
   return (
     <button

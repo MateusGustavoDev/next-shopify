@@ -8,6 +8,8 @@ const button = tv({
   variants: {
     color: {
       primary: 'bg-blue-600 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
+      secondary:
+        'bg-neutral-700 border border-neutral-600 hover:bg-neutral-600 text-neutral-500 data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
     },
     shape: {
       circle: 'rounded-full',
@@ -83,7 +85,7 @@ export function ActionButton({ children, size, color, icon, svgOnly, shape, disa
         )
       ) : svgOnly && icon ? (
         <div>
-          <Icon icon={icon} />
+          <Icon icon={icon} color={color} />
         </div>
       ) : (
         children
@@ -123,17 +125,20 @@ const icon = tv({
     },
     color: {
       primary: 'text-white',
+      secondary: 'text-neutral-400',
     },
   },
   defaultVariants: {
+    color: 'primary',
     size: 'md',
   },
 })
 
 type IconProps = VariantProps<typeof icon> & {
   icon: ElementType
+  color: 'primary' | 'secondary' | undefined
 }
 
-export function Icon({ icon: Icon, size }: IconProps) {
-  return <Icon className={icon({ size })} />
+export function Icon({ icon: Icon, size, color }: IconProps) {
+  return <Icon className={icon({ size, color })} />
 }

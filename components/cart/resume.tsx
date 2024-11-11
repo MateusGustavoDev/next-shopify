@@ -11,26 +11,28 @@ export function CartResume({ subtotal, total, fee, checkoutUrl }: CartResumeProp
   return (
     <section className="mb-8">
       <div className="flex w-full items-center justify-between">
-        <span>Subtotal</span>
+        <span className="text-sm text-neutral-400">Subtotal</span>
         <span>{formatPriceToBrl(subtotal)}</span>
       </div>
-      <div className="my-3 h-[1px] w-full bg-black" />
+      <div className="my-3 h-[1px] w-full bg-neutral-800" />
       <div className="flex w-full items-center justify-between">
-        <span>Taxas</span>
+        <span className="text-sm text-neutral-400">Taxas</span>
         <span className="uppercase">{formatPriceToBrl(fee)}</span>
       </div>
-      <div className="my-3 h-[1px] w-full bg-black" />
+      <div className="my-3 h-[1px] w-full bg-neutral-800" />
       <div className="flex w-full items-center justify-between">
-        <span>Entrega</span>
+        <span className="text-sm text-neutral-400">Entrega</span>
         <span className="uppercase">Gratis</span>
       </div>
-      <div className="my-3 h-[1px] w-full bg-black" />
+      <div className="my-3 h-[1px] w-full bg-neutral-800" />
       <div className="flex w-full items-center justify-between">
-        <span>Total</span>
+        <span className="text-sm text-neutral-400">Total</span>
         <span>{formatPriceToBrl(total)}</span>
       </div>
       <a href={checkoutUrl}>
-        <button className="mt-6 w-full bg-black py-2 text-white">Finalizar compra</button>
+        <button className="mt-6 w-full rounded-full bg-blue-600 py-2 text-white hover:bg-blue-700">
+          Finalizar compra
+        </button>
       </a>
     </section>
   )

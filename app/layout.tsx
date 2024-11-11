@@ -1,12 +1,10 @@
 import '@/app/globals.css'
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Geist } from 'next/font/google'
 import { ReactNode } from 'react'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
+const geistSans = Geist({
   variable: '--font-geist-sans',
-  weight: '100, 200, 300, 400, 500, 600, 700, 800, 900',
 })
 
 const { SITE_NAME } = process.env

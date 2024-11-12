@@ -1,4 +1,4 @@
-import { ProductType } from '@/lib/shopify/fetch/types'
+import { ProductType } from '@/lib/shopify/types'
 import { productVariantUrl, formatPriceToBrl, removeEdgesAndNodes } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'

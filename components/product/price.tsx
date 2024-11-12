@@ -1,5 +1,5 @@
 'use client'
-import { ProductOptionType, ProductVariantType } from '@/lib/shopify/fetch/types'
+import { ProductOptionType, ProductVariantType } from '@/lib/shopify/types'
 import { calculateDiscount, formatPriceToBrl } from '@/lib/utils'
 import { ArrowDown, ChevronDown } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'

@@ -12,6 +12,13 @@ export const productFragment = /* GraphQL */ `
     options {
       id
       name
+      optionValues {
+        id
+        name
+        swatch {
+          color
+        }
+      }
     }
     priceRange {
       maxVariantPrice {

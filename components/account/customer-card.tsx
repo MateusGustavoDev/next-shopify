@@ -1,5 +1,5 @@
-import { deleteSession } from '@/actions/auth/session'
-import { getCustomerInfoAction } from '@/actions/customer'
+import { deleteSession } from '@/app/actions/auth/session'
+import { getCustomerInfoAction } from '@/app/actions/customer'
 import Link from 'next/link'
 
 export async function CustomerCard() {

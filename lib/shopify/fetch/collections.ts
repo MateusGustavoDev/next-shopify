@@ -2,7 +2,7 @@ import 'server-only'
 import { TAGS } from '@/lib/constants'
 
 import { shopifyFetch } from './shopify-fetch'
-import { CollectionsType } from './types'
+import { CollectionsType } from '../types'
 import { GetCollectionsQuery } from '../graphql/generated'
 import { getCollectionsQuery } from '../graphql/queries/get-collections'
 

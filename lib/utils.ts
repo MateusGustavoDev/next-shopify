@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { ReadonlyURLSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
-import { SelectedOptionsType } from './shopify/fetch/types'
+import { SelectedOptionsType } from './shopify/types'
 import { DEFAULT_OPTION } from './constants'
 
 export function cn(...inputs: ClassValue[]) {

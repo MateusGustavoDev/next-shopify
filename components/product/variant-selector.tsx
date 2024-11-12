@@ -1,5 +1,5 @@
 'use client'
-import { ProductOptionType, ProductVariantType } from '@/lib/shopify/fetch/types'
+import { ProductOptionType, ProductVariantType } from '@/lib/shopify/types'
 import { cn, createUrl } from '@/lib/utils'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 

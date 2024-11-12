@@ -1,6 +1,6 @@
 'use server'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
-import { CollectionProductsType, PageInfoType, ProductType } from '@/lib/shopify/fetch/types'
+import { CollectionProductsType, PageInfoType, ProductType } from '@/lib/shopify/types'
 import { removeEdgesAndNodes } from '@/lib/utils'
 import { TAGS } from '@/lib/constants'
 import {

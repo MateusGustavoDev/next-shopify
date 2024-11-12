@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { CartResume } from './resume'
 import { CartItem } from './item'
 import { getCart } from '@/lib/shopify/fetch/cart'
-import { CartType } from '@/lib/shopify/fetch/types'
+import { CartType } from '@/lib/shopify/types'
 import { getCartId } from '@/app/actions/cart'
 
 export async function CartModal() {

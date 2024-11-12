@@ -1,4 +1,4 @@
-import { ProductType } from '@/lib/shopify/fetch/types'
+import { ProductType } from '@/lib/shopify/types'
 import { ActionButton } from '../action-button'
 import { ProductCard } from '../product/product-card'
 

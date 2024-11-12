@@ -1,7 +1,7 @@
 'use server'
 import { ERROR_MESSAGES } from '@/lib/constants'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
-import { ActionStateType } from '@/lib/shopify/fetch/types'
+import { ActionStateType } from '@/lib/shopify/types'
 import { CreateCustomerAccountMutation } from '@/lib/shopify/graphql/generated'
 import { SignupFormState, SignupFormScheme } from '@/lib/zod/auth'
 import { loginAction } from './login'

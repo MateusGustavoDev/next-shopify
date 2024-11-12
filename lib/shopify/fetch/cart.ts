@@ -1,7 +1,7 @@
 import 'server-only'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { ERROR_MESSAGES, TAGS } from '@/lib/constants'
-import { ActionStateType, CartType } from './types'
+import { ActionStateType, CartType } from '../types'
 import { AddCartLinesMutation, CartQueryQuery, CreateCartMutation, EditCartItemsMutation } from '../graphql/generated'
 import { createCartMutation } from '../graphql/mutations/create-cart'
 import { getCartQuery } from '../graphql/queries/get-cart'

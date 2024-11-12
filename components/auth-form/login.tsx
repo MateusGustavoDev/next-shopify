@@ -3,7 +3,7 @@ import { LoginFormState, LoginFormScheme } from '@/lib/zod/auth'
 import { ActionButton } from '../action-button'
 import { useActionState } from 'react'
 import { Input, InputError } from '../input'
-import { loginAction } from '@/actions/auth/login'
+import { loginAction } from '@/app/actions/auth/login'
 
 const initialState = {
   email: '',

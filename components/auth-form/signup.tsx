@@ -1,5 +1,5 @@
 'use client'
-import { signupAction } from '@/actions/auth/signup'
+import { signupAction } from '@/app/actions/auth/signup'
 import { SignupFormState, SignupFormScheme } from '@/lib/zod/auth'
 import { ActionButton } from '../action-button'
 import { useActionState } from 'react'

@@ -3,7 +3,7 @@ import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTr
 import { LoaderCircle, Search, SearchIcon, X } from 'lucide-react'
 import { FormEvent, useEffect, useState, useTransition } from 'react'
 import Link from 'next/link'
-import { ProductType } from '@/lib/shopify/fetch/types'
+import { ProductType } from '@/lib/shopify/types'
 import { formatPriceToBrl, productVariantUrl, removeEdgesAndNodes } from '@/lib/utils'
 import { searchProductsAction } from '@/app/actions/search'
 import { useRouter } from 'next/navigation'

@@ -1,5 +1,5 @@
 'use client'
-import { ImageType, ProductOptionType } from '@/lib/shopify/fetch/types'
+import { ImageType, ProductOptionType } from '@/lib/shopify/types'
 import { createUrl } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname, useSearchParams } from 'next/navigation'

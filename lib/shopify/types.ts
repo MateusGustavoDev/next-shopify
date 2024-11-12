@@ -1,4 +1,4 @@
-import { CurrencyCode, Image, Maybe, MoneyV2, PageInfo, ProductFragment, SelectedOption } from '../graphql/generated'
+import { CurrencyCode, Image, Maybe, MoneyV2, PageInfo, ProductFragment, SelectedOption } from './graphql/generated'
 
 export type ProductType = ProductFragment
 

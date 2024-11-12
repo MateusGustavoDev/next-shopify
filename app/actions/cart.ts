@@ -2,7 +2,7 @@
 import { cartIdCookie, ERROR_MESSAGES, TAGS } from '@/lib/constants'
 import { addCartLine, createCart, updateCart } from '@/lib/shopify/fetch/cart'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
-import { ActionStateType, CartType } from '@/lib/shopify/fetch/types'
+import { ActionStateType, CartType } from '@/lib/shopify/types'
 
 import { RemoveFromCartMutation } from '@/lib/shopify/graphql/generated'
 import { removeFromCartMutation } from '@/lib/shopify/graphql/mutations/remove-from-cart'

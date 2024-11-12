@@ -1,8 +1,8 @@
 'use server'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { SearchProductsType } from '@/lib/shopify/fetch/types'
-import { searchProductsQuery } from '@/lib/shopify/graphql/queries/products'
 import { SearchProductsQuery } from '@/lib/shopify/graphql/generated'
+import { searchProductsQuery } from '@/lib/shopify/graphql/queries/search-products'
 import { removeEdgesAndNodes } from '@/lib/utils'
 
 type SearchProductsAction = {

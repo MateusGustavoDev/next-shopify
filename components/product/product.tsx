@@ -4,7 +4,7 @@ import { AddToCartButton } from '@/components/cart/add-to-cart'
 import { Gallery } from './gallery'
 import { removeEdgesAndNodes } from '@/lib/utils'
 import { Price } from './price'
-import { getProductByHandle } from '@/actions/products'
+import { getProductByHandle } from '@/app/actions/products'
 import { notFound } from 'next/navigation'
 
 interface ProductProps {
@@ -26,7 +26,7 @@ export async function Product({ handle }: ProductProps) {
       <Gallery images={images} options={options} title={product.title} />
       <div className="flex w-full max-w-[440px] flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-6 tablet:aspect-auto tablet:max-w-full tablet:gap-10">
         <div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <span className="block text-sm font-normal text-blue-500">Produto novo | Disponível</span>
             <span className="text-3xl font-bold tablet:text-xl">{product.title}</span>
             <Price amount={price} variants={variants} options={options} />

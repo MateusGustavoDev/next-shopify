@@ -19,7 +19,7 @@ const config: Config = {
         desktop: {
           max: '81.25rem',
         },
-        wrapper: '81.25rem',
+        wrapper: '1440px',
       },
       fontFamily: {
         'geist-sans': 'var(--font-geist-sans)',

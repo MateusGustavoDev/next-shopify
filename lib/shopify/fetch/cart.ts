@@ -1,15 +1,12 @@
 import 'server-only'
-import { addCartLinesMutation, createCartMutation, editCartItemsMutation } from '@/lib/shopify/graphql/mutations/cart'
-import { getCartQuery } from '@/lib/shopify/graphql/queries/cart'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { ERROR_MESSAGES, TAGS } from '@/lib/constants'
 import { ActionStateType, CartType } from './types'
-import {
-  AddCartLinesMutation,
-  CartQueryQuery,
-  CreateCartMutation,
-  EditCartItemsMutation,
-} from '../graphql/generated/storefront.generated'
+import { AddCartLinesMutation, CartQueryQuery, CreateCartMutation, EditCartItemsMutation } from '../graphql/generated'
+import { createCartMutation } from '../graphql/mutations/create-cart'
+import { getCartQuery } from '../graphql/queries/get-cart'
+import { addCartLinesMutation } from '../graphql/mutations/add-cart-lines'
+import { editCartItemsMutation } from '../graphql/mutations/add-cart-items'
 
 export async function createCart(): Promise<CartType | undefined> {
   const { data, errors } = await shopifyFetch<CreateCartMutation>({ query: createCartMutation })

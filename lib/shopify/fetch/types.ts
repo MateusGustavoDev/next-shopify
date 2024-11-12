@@ -47,6 +47,7 @@ export type ProductVariantType = {
 
 export type CollectionProductsType = {
   title: string
+  handle: string
   products: ProductType[]
   pageInfo: PageInfoType
 }

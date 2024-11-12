@@ -1,5 +1,5 @@
 'use client'
-import { updateItemQuantityAction } from '@/actions/cart'
+import { updateItemQuantityAction } from '@/app/actions/cart'
 import { LoaderCircle, MinusIcon, PlusIcon } from 'lucide-react'
 import { useFormStatus } from 'react-dom'
 

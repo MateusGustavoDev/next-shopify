@@ -1,7 +1,6 @@
 'use client'
 import { ProductOptionType, ProductVariantType } from '@/lib/shopify/fetch/types'
 import { cn, createUrl } from '@/lib/utils'
-import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 interface VariantSelectorProps {
@@ -16,6 +15,7 @@ export type Combination = {
 }
 
 export function VariantSelector({ options, variants }: VariantSelectorProps) {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
 
@@ -79,8 +79,8 @@ export function VariantSelector({ options, variants }: VariantSelectorProps) {
                           'border-neutral-600': isActive && !isAvailableForSale,
                         })}
                       >
-                        <Link
-                          href={optionUrl}
+                        <button
+                          onClick={() => router.replace(optionUrl, { scroll: false })}
                           aria-disabled={!isAvailableForSale}
                           data-active={isActive}
                           className={cn(
@@ -95,7 +95,7 @@ export function VariantSelector({ options, variants }: VariantSelectorProps) {
                         >
                           <div className="absolute left-1/2 top-1/2 hidden h-[1px] w-full -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-neutral-700 group-aria-disabled:block" />
                           {value.name}
-                        </Link>
+                        </button>
                       </div>
                     </li>
                   )
@@ -126,7 +126,7 @@ function ColorSelector({ colors, selectedColor }: ColorSelectorProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <span className="text-sm font-normal mobile:text-xs">Cor {selectedColor ? `- ${selectedColor}` : null}</span>
+      <p className="text-sm font-normal mobile:text-xs">Cor {selectedColor ? `- ${selectedColor}` : null}</p>
       <div className="flex gap-2">
         {colors.map((color) => {
           const colorSearchParams = new URLSearchParams(searchParams.toString())

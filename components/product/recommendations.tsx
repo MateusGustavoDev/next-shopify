@@ -1,22 +1,14 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { formatPriceToBrl, calculateDiscount, productVariantUrl } from '@/lib/utils'
-import { getCollectionProducts } from '@/app/actions/products'
-import { ChevronDown, Flame } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
+import { ProductsCarousel } from './products-carousel'
+import { calculateDiscount, formatPriceToBrl, productVariantUrl } from '@/lib/utils'
+import { ChevronDown, Flame } from 'lucide-react'
+import Image from 'next/image'
 
-interface CollectionProps {
-  collection: string
-}
-
-export async function ProductsCarousel({ collection }: CollectionProps) {
-  const data = await getCollectionProducts({ collection: collection })
-
-  if (!data) return null
-
+export async function Recommendations() {
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="item flex w-full items-center justify-between">
+      {/* <div className="item flex w-full items-center justify-between">
         <div className="flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-4 py-2">
           <Flame className="w-5" />
           <p className="w-max text-base font-semibold mobile:text-base">{data.title}</p>
@@ -74,7 +66,7 @@ export async function ProductsCarousel({ collection }: CollectionProps) {
         </CarouselContent>
         <CarouselPrevious className="left-4 h-6 w-6 bg-white text-black" />
         <CarouselNext className="right-4 h-6 w-6 bg-white text-black" />
-      </Carousel>
+      </Carousel> */}
     </div>
   )
 }

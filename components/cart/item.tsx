@@ -3,7 +3,7 @@ import { DEFAULT_OPTION } from '@/lib/constants'
 import { formatPriceToBrl } from '@/lib/utils'
 import Image from 'next/image'
 import { EditItemQuantity } from './edit-item-quantity'
-import { removeCartItemAction } from '@/actions/cart'
+import { removeCartItemAction } from '@/app/actions/cart'
 import { X } from 'lucide-react'
 import { ActionButton } from '@/components/action-button'
 

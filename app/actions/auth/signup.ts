@@ -2,10 +2,10 @@
 import { ERROR_MESSAGES } from '@/lib/constants'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { ActionStateType } from '@/lib/shopify/fetch/types'
-import { createCustomerAccountMutation } from '@/lib/shopify/graphql/mutations/customer'
 import { CreateCustomerAccountMutation } from '@/lib/shopify/graphql/generated'
 import { SignupFormState, SignupFormScheme } from '@/lib/zod/auth'
 import { loginAction } from './login'
+import { createCustomerAccountMutation } from '@/lib/shopify/graphql/mutations/create-customer-account'
 
 type SignupActionArgs = {
   firstName: string

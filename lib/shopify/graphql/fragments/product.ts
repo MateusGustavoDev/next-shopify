@@ -1,32 +1,5 @@
 import { imageFragment } from './image'
-
-export const productVariantFragment = /* GraphQL */ `
-  fragment ProductVariant on ProductVariantConnection {
-    edges {
-      node {
-        id
-        title
-        availableForSale
-        quantityAvailable
-        selectedOptions {
-          name
-          value
-        }
-        price {
-          amount
-          currencyCode
-        }
-        compareAtPrice {
-          amount
-          currencyCode
-        }
-        image {
-          url
-        }
-      }
-    }
-  }
-`
+import { productVariantFragment } from './product-variant'
 
 export const productFragment = /* GraphQL */ `
   fragment Product on Product {
@@ -39,13 +12,6 @@ export const productFragment = /* GraphQL */ `
     options {
       id
       name
-      optionValues {
-        id
-        name
-        swatch {
-          color
-        }
-      }
     }
     priceRange {
       maxVariantPrice {
@@ -53,12 +19,6 @@ export const productFragment = /* GraphQL */ `
         currencyCode
       }
       minVariantPrice {
-        amount
-        currencyCode
-      }
-    }
-    compareAtPriceRange {
-      maxVariantPrice {
         amount
         currencyCode
       }

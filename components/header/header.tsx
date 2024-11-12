@@ -16,7 +16,7 @@ export function Header() {
             <MobileMenu />
             <SearchModal />
           </div>
-          <Link href="/" className="text-2xl font-semibold text-blue-600">
+          <Link href="/" className="text-2xl font-black uppercase text-blue-600">
             {SITE_NAME}
           </Link>
           <ul className="flex w-full justify-center gap-8 text-sm text-neutral-400 tablet:hidden">

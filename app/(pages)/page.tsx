@@ -1,4 +1,4 @@
-import { Carousel } from '@/components/product/carousel'
+import { ProductsCarousel } from '@/components/product/products-carousel'
 import { CarouselSkeleton } from '@/components/skeletons/carousel'
 import { Wrapper } from '@/components/wrapper'
 import { Metadata } from 'next'
@@ -21,10 +21,10 @@ export default function HomePage() {
         <div className="flex w-full flex-col gap-16">
           <div className="flex w-full flex-col gap-20">
             <Suspense fallback={<CarouselSkeleton />}>
-              <Carousel collection="mais-vendidos" />
+              <ProductsCarousel collection="mais-vendidos" />
             </Suspense>
             <Suspense fallback={<CarouselSkeleton />}>
-              <Carousel collection="Watches" />
+              <ProductsCarousel collection="Watches" />
             </Suspense>
           </div>
         </div>

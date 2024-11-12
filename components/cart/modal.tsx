@@ -4,7 +4,7 @@ import { CartResume } from './resume'
 import { CartItem } from './item'
 import { getCart } from '@/lib/shopify/fetch/cart'
 import { CartType } from '@/lib/shopify/fetch/types'
-import { getCartId } from '@/actions/cart'
+import { getCartId } from '@/app/actions/cart'
 
 export async function CartModal() {
   const cartId = await getCartId()

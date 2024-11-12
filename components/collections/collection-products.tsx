@@ -1,11 +1,11 @@
 'use client'
 import { getCollectionProducts } from '@/actions/products'
-import { CollectionProductType } from '@/lib/shopify/fetch/types'
+import { CollectionProductsType } from '@/lib/shopify/fetch/types'
 import { useState } from 'react'
 import { ProductList } from './product-list'
 
 interface CollectionProductsProps {
-  collection: CollectionProductType
+  collection: CollectionProductsType
 }
 
 export function CollectionProducts({ collection }: CollectionProductsProps) {

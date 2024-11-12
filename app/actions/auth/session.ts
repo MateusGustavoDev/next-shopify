@@ -3,8 +3,8 @@ import 'server-only'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
-import { getCustomerInfoQuery } from '@/lib/shopify/graphql/queries/customer'
 import { CustomerMetafieldsQuery } from '@/lib/shopify/graphql/generated'
+import { getCustomerInfoQuery } from '@/lib/shopify/graphql/queries/get-customer-info'
 
 export async function getCustomerAccessToken() {
   const cookieStore = await cookies()

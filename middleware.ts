@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server'
-import { verifySessionMiddleware } from './actions/auth/session'
+import { verifySessionMiddleware } from './app/actions/auth/session'
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname

@@ -1,9 +1,10 @@
 import 'server-only'
 import { TAGS } from '@/lib/constants'
-import { getCollectionsQuery } from '@/lib/shopify/graphql/queries/collections'
-import { GetCollectionsQuery } from '@/lib/shopify/types/storefront.generated'
+
 import { shopifyFetch } from './shopify-fetch'
 import { CollectionsType } from './types'
+import { GetCollectionsQuery } from '../graphql/generated'
+import { getCollectionsQuery } from '../graphql/queries/get-collections'
 
 export async function getCollections(): Promise<CollectionsType | undefined> {
   const { data, errors } = await shopifyFetch<GetCollectionsQuery>({

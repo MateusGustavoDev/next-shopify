@@ -1,11 +1,11 @@
 'use server'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
 import { ActionStateType } from '@/lib/shopify/fetch/types'
-import { customerAccessTokenCreateMutation } from '@/lib/shopify/graphql/mutations/customer'
 import { CustomerAccessTokenCreateMutation } from '@/lib/shopify/graphql/generated'
 import { LoginFormState, LoginFormScheme } from '@/lib/zod/auth'
 import { createSession } from './session'
 import { ERROR_MESSAGES } from '@/lib/constants'
+import { customerAccessTokenCreateMutation } from '@/lib/shopify/graphql/mutations/customer-access-token-create'
 
 type LoginActionArgs = {
   customerEmail: string

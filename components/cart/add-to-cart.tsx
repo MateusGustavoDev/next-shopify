@@ -1,5 +1,5 @@
 'use client'
-import { addProductToCartAction } from '@/actions/cart'
+import { addProductToCartAction } from '@/app/actions/cart'
 import { ProductVariantType } from '@/lib/shopify/fetch/types'
 import { useSearchParams } from 'next/navigation'
 import { ActionButton } from '../action-button'

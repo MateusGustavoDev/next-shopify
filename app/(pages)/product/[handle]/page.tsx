@@ -1,5 +1,5 @@
 import { Product } from '@/components/product/product'
-import { getProductByHandle } from '@/actions/products'
+import { getProductByHandle } from '@/app/actions/products'
 import { Suspense } from 'react'
 import { ProductSkeleton } from '@/components/skeletons/product'
 import { Wrapper } from '@/components/wrapper'
@@ -24,7 +24,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <Wrapper>
-      <div className="mt-10 w-full">
+      <div className="mt-14 w-full">
         <Suspense fallback={<ProductSkeleton />}>
           <Product handle={handle} />
         </Suspense>

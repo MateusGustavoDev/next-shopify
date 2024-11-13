@@ -37,6 +37,12 @@ export async function ProductsCarousel({ collection }: CollectionProps) {
             const compareAtPrice = firstVariant.compareAtPrice?.amount as string | null
             const productUrl = productVariantUrl(firstVariant.selectedOptions, product.handle)
 
+            const hasColorOptions = product.options.find((option) => option.name === 'Cor')
+            const formattedColorOptions = hasColorOptions?.optionValues.map((color) => ({
+              name: color.name,
+              color: color.swatch?.color as string,
+            }))
+
             return (
               <CarouselItem key={product.id} className="group w-full basis-1/4">
                 <Link
@@ -44,6 +50,17 @@ export async function ProductsCarousel({ collection }: CollectionProps) {
                   className="relative flex flex-col gap-1 rounded-xl border border-neutral-800 bg-neutral-900 hover:border-neutral-700"
                 >
                   <div className="relative flex h-[260px] items-center justify-center tablet:h-[200px]">
+                    {formattedColorOptions && (
+                      <ul className="absolute right-4 top-4 flex gap-2">
+                        {formattedColorOptions.map((color) => (
+                          <li
+                            key={color.name}
+                            className="h-4 w-4 gap-2 rounded-full"
+                            style={{ backgroundColor: color.color }}
+                          />
+                        ))}
+                      </ul>
+                    )}
                     <Image
                       src={firstVariant.image?.url}
                       alt={product.title}

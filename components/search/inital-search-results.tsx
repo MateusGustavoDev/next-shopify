@@ -1,4 +1,4 @@
-import { searchProductsAction } from '@/actions/search'
+import { searchProductsAction } from '@/app/actions/search'
 import { SearchResults } from './search-results'
 import { notFound } from 'next/navigation'
 

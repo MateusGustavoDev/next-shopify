@@ -1,5 +1,4 @@
 import { VariantSelector } from './variant-selector'
-import { Description } from './description'
 import { AddToCartButton } from '@/components/cart/add-to-cart'
 import { Gallery } from './gallery'
 import { removeEdgesAndNodes } from '@/lib/utils'

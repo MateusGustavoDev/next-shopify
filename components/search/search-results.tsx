@@ -1,7 +1,7 @@
 'use client'
-import { searchProductsAction } from '@/actions/search'
+import { searchProductsAction } from '@/app/actions/search'
 import { useState } from 'react'
-import { SearchProductsType } from '@/lib/shopify/fetch/types'
+import { SearchProductsType } from '@/lib/shopify/types'
 import { ProductList } from '../collections/product-list'
 
 interface SearchResultsProps {

@@ -41,7 +41,7 @@ export function CartItem(props: CartItemProps) {
             )}
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-medium">{formatPriceToBrl(props.price)}</span>
+            <span className="text-end text-sm font-medium">{formatPriceToBrl(props.price)}</span>
             <EditItemQuantity
               id={props.id}
               merchandiseId={props.merchandiseId}

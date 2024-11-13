@@ -72,8 +72,11 @@ export function SearchModal() {
   return (
     <Dialog open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
       <DialogTrigger asChild>
-        <button aria-label="Pesquisar produto" className="outline-none">
-          <SearchIcon className="w-7 text-neutral-400 hover:text-white" />
+        <button
+          aria-label="Pesquisar produto"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-800 text-neutral-400 outline-none hover:bg-neutral-900 hover:text-white"
+        >
+          <SearchIcon className="w-5" />
         </button>
       </DialogTrigger>
       <DialogContent className="fixed left-1/2 top-20 z-50 w-full max-w-[700px] -translate-x-1/2 translate-y-0 gap-4 border-neutral-800 bg-neutral-900 p-0 py-6">

@@ -24,7 +24,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <Wrapper>
-      <div className="mt-14 w-full">
+      <div className="mt-10 w-full">
         <Suspense fallback={<ProductSkeleton />}>
           <Product handle={handle} />
         </Suspense>

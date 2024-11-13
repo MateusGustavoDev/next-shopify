@@ -1,5 +1,5 @@
-import { ShoppingBag, ShoppingCart } from 'lucide-react'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { ShoppingBag, ShoppingCart, X } from 'lucide-react'
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { CartResume } from './resume'
 import { CartItem } from './item'
 import { getCart } from '@/lib/shopify/fetch/cart'
@@ -18,20 +18,28 @@ export async function CartModal() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button aria-label="Carrinho" className="relative">
+        <button
+          aria-label="Carrinho"
+          className="relative flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 text-neutral-400 hover:bg-neutral-900 hover:text-white"
+        >
           {cart && cart.totalQuantity > 0 && (
-            <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-black text-sm text-white">
+            <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-md bg-blue-600 text-sm text-white">
               {cart.totalQuantity}
             </div>
           )}
-          <ShoppingBag className="w-7 text-neutral-400 hover:text-white" />
+          <ShoppingBag className="w-5" />
         </button>
       </SheetTrigger>
       <SheetContent className="w-full max-w-[430px] border-neutral-800 bg-black py-10">
-        <SheetHeader className="flex w-max flex-row items-center justify-center gap-2 rounded-full border-2 border-blue-600 px-4 py-2">
-          <ShoppingCart className="w-5" />
-          <SheetTitle className="text-sm font-semibold text-white">Carrinho de compras</SheetTitle>
-        </SheetHeader>
+        <div className="flex items-center justify-between">
+          <SheetHeader className="flex w-max flex-row items-center justify-center gap-2 rounded-full border-2 border-blue-600 px-4 py-2">
+            <ShoppingCart className="w-5" />
+            <SheetTitle className="text-sm font-semibold text-white">Carrinho de compras</SheetTitle>
+          </SheetHeader>
+          <SheetClose className="rounded-md border border-neutral-800 p-2 hover:bg-neutral-900">
+            <X />
+          </SheetClose>
+        </div>
         {cart && cart.totalQuantity > 0 ? (
           <div className="flex h-full flex-col justify-between">
             <ul className="flex flex-col overflow-auto pt-6">

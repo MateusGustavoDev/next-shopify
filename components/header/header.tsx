@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Wrapper } from '@/components/wrapper'
-import { CircleUserRound } from 'lucide-react'
+import { User } from 'lucide-react'
 import { SearchModal } from '../search/search-bar'
 import { CartModal } from '@/components/cart/modal'
 import { MobileMenu } from './mobile-menu'
@@ -19,34 +19,41 @@ export function Header() {
           <Link href="/" className="text-2xl font-black uppercase text-blue-600">
             {SITE_NAME}
           </Link>
-          <ul className="flex w-full justify-center gap-8 text-sm text-neutral-400 tablet:hidden">
+          <ul className="flex w-full justify-center gap-2 text-sm text-neutral-400 tablet:hidden">
             <li>
-              <Link href="/collections/smartphones" className="hover:text-white">
+              <Link
+                href="/collections/smartphones"
+                className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white"
+              >
                 Smartphones
               </Link>
             </li>
             <li>
-              <Link href="/collections/watches" className="hover:text-white">
+              <Link href="/collections/watches" className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white">
                 Watches
               </Link>
             </li>
             <li>
-              <Link href="/collections/novidades" className="hover:text-white">
+              <Link href="/collections/novidades" className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white">
                 Novidades
               </Link>
             </li>
             <li>
-              <Link href="/search" className="hover:text-white">
+              <Link href="/search" className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white">
                 Todos
               </Link>
             </li>
           </ul>
-          <div className="flex shrink-0 items-center gap-7 tablet:gap-4">
+          <div className="flex shrink-0 items-center gap-6 tablet:gap-4">
             <div className="flex items-center tablet:hidden">
               <SearchModal />
             </div>
-            <Link aria-label="Conta" href="/account/orders" className="hover:text-white">
-              <CircleUserRound className="w-7 text-neutral-400 hover:text-white" />
+            <Link
+              aria-label="Conta"
+              href="/account/orders"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-800 text-neutral-400 hover:bg-neutral-900 hover:text-white"
+            >
+              <User className="w-5" />
             </Link>
             <CartModal />
           </div>

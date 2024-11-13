@@ -4,10 +4,11 @@ import { useFormStatus } from 'react-dom'
 import { tv, VariantProps } from 'tailwind-variants'
 
 const button = tv({
-  base: 'w-max gap-2 aria-disabled:pointer-events-none flex justify-center items-center',
+  base: 'w-max gap-2 aria-disabled:pointer-events-none  rounded-md flex justify-center items-center',
   variants: {
     color: {
-      primary: 'bg-blue-600 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
+      primary:
+        'bg-blue-600 hover:bg-blue-700 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
       secondary:
         'bg-neutral-700 border border-neutral-600 hover:bg-neutral-600 text-neutral-500 data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
     },

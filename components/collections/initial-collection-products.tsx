@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getCollectionProducts } from '@/actions/products'
+import { getCollectionProducts } from '@/app/actions/products'
 import { CollectionProducts } from './collection-products'
 
 export async function InitialCollectionProducts({ handle }: { handle: string }) {

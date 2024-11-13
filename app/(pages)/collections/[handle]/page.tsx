@@ -32,13 +32,13 @@ export default async function CollectionPage({ params }: Props) {
           <div className="flex flex-col gap-2 border-t border-neutral-800 p-4">
             <span className="text-sm">Ordenar por</span>
             <div className="flex flex-wrap gap-2">
-              <button className="rounded-sm border border-transparent bg-neutral-800 px-3 py-1 text-start text-sm text-neutral-300">
+              <button className="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-1 text-start text-sm text-neutral-300 hover:bg-neutral-800">
                 Recentes
               </button>
-              <button className="rounded-sm border border-transparent bg-neutral-800 px-3 py-1 text-start text-sm text-neutral-300">
+              <button className="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-1 text-start text-sm text-neutral-300 hover:bg-neutral-800">
                 Preço Maior {'>'} Menor
               </button>
-              <button className="rounded-sm border border-transparent bg-neutral-800 px-3 py-1 text-start text-sm text-neutral-300">
+              <button className="rounded-sm border border-neutral-800 bg-neutral-900 px-3 py-1 text-start text-sm text-neutral-300 hover:bg-neutral-800">
                 Preço Menor {'>'} Maior
               </button>
             </div>

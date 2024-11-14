@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <Wrapper>
-      <div className="relative mt-10 h-[342px] w-full border-neutral-700">
+      <div className="relative mt-10 h-[400px] w-full border-neutral-700">
         <Image fill src={banner} alt="" />
       </div>
       <div className="mt-10">

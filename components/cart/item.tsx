@@ -34,10 +34,10 @@ export function CartItem(props: CartItemProps) {
       </div>
       <div className="flex w-full justify-between">
         <div className="flex w-full justify-between">
-          <div className="flex w-full max-w-[130px] flex-col">
-            <span className="font-medium">{props.title}</span>
+          <div className="flex w-full max-w-[130px] flex-col gap-2">
+            <span className="text-sm font-medium">{props.title}</span>
             {props.variantTitle !== DEFAULT_OPTION && (
-              <span className="text-sm text-neutral-400">{props.variantTitle}</span>
+              <span className="text-xs font-medium text-neutral-400">{props.variantTitle}</span>
             )}
           </div>
           <div className="flex flex-col">

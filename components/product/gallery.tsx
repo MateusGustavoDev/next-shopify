@@ -30,7 +30,7 @@ export function Gallery({ images, options, title }: GalleryProps) {
   const imageIndex = imageSearchParam ? parseInt(imageSearchParam) : 0
 
   return (
-    <div className="relative flex h-max w-full justify-center rounded-xl border border-neutral-800 bg-neutral-900 p-10 tablet:p-4">
+    <div className="tablet:p-4 relative flex h-max w-full justify-center rounded-xl border border-neutral-800 bg-neutral-900 p-10">
       {productImages.length > 1 && (
         <ul className="absolute left-8 top-8 z-50 flex flex-col gap-2">
           {productImages?.map((image, index) => {

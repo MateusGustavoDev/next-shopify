@@ -10,15 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        mobile: {
+        sm: {
           max: '30rem',
         },
-        tablet: {
+        lg: {
           max: '62rem',
         },
-        desktop: {
-          max: '81.25rem',
+        xl: {
+          max: '1124px',
         },
+
         wrapper: '1440px',
       },
       fontFamily: {

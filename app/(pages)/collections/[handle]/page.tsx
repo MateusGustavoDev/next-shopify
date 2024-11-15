@@ -24,7 +24,7 @@ export default async function CollectionPage({ params }: Props) {
   return (
     <div className="mt-10">
       <Wrapper className="flex gap-4">
-        <div className="h-full w-full max-w-[300px] rounded-lg border border-neutral-800 bg-neutral-900">
+        <div className="h-full w-full max-w-[300px] rounded-lg border border-neutral-800">
           <div className="flex gap-2 p-4 font-semibold">
             <Filter className="w-5" />
             <p>Filtrar e classificar</p>

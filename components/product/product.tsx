@@ -21,13 +21,13 @@ export async function Product({ handle }: ProductProps) {
   const options = product.options
 
   return (
-    <div className="relative flex h-max w-full gap-5 tablet:flex-col">
+    <div className="tablet:flex-col relative flex h-max w-full gap-5">
       <Gallery images={images} options={options} title={product.title} />
-      <div className="flex w-full max-w-[440px] flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-6 tablet:aspect-auto tablet:max-w-full tablet:gap-10">
+      <div className="tablet:aspect-auto tablet:max-w-full tablet:gap-10 flex w-full max-w-[440px] flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-6">
         <div>
           <div className="flex flex-col gap-3">
             <span className="block text-sm font-normal text-blue-500">Produto novo | Disponível</span>
-            <span className="text-3xl font-bold tablet:text-xl">{product.title}</span>
+            <span className="tablet:text-xl text-3xl font-bold">{product.title}</span>
             <Price amount={price} variants={variants} options={options} />
           </div>
           <VariantSelector variants={variants} options={options} />

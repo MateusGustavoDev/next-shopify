@@ -50,7 +50,7 @@ export function VariantSelector({ options, variants }: VariantSelectorProps) {
         return (
           <div key={option.id}>
             <div className="flex flex-col gap-4">
-              <span className="text-sm font-normal mobile:text-xs">{option.name}</span>
+              <span className="mobile:text-xs text-sm font-normal">{option.name}</span>
               <ul className="flex flex-wrap gap-3">
                 {option.optionValues.map((value) => {
                   const optionNameLowerCase = option.name.toLocaleLowerCase()
@@ -126,7 +126,7 @@ function ColorSelector({ colors, selectedColor }: ColorSelectorProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-sm font-normal mobile:text-xs">Cor {selectedColor ? `- ${selectedColor}` : null}</p>
+      <p className="mobile:text-xs text-sm font-normal">Cor {selectedColor ? `- ${selectedColor}` : null}</p>
       <div className="flex gap-2">
         {colors.map((color) => {
           const colorSearchParams = new URLSearchParams(searchParams.toString())

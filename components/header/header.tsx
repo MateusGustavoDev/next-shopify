@@ -12,14 +12,14 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-neutral-800 bg-black">
       <Wrapper>
         <div className="flex h-[70px] w-full items-center justify-between">
-          <div className="hidden items-center gap-4 tablet:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             <MobileMenu />
             <SearchModal />
           </div>
           <Link href="/" className="text-2xl font-black uppercase text-blue-600">
             {SITE_NAME}
           </Link>
-          <ul className="flex w-full justify-center gap-2 text-sm text-neutral-400 tablet:hidden">
+          <ul className="flex w-full justify-center gap-2 text-sm text-neutral-400 lg:hidden">
             <li>
               <Link
                 href="/collections/smartphones"
@@ -44,8 +44,8 @@ export function Header() {
               </Link>
             </li>
           </ul>
-          <div className="flex shrink-0 items-center gap-6 tablet:gap-4">
-            <div className="flex items-center tablet:hidden">
+          <div className="flex shrink-0 items-center gap-6 lg:gap-4">
+            <div className="flex items-center lg:hidden">
               <SearchModal />
             </div>
             <Link

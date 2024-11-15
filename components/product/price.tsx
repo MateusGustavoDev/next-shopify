@@ -37,7 +37,7 @@ export function Price({ amount, variants, options }: PriceProps) {
 
   return (
     <div className="flex gap-2">
-      <span className="text-2xl font-semibold text-neutral-300 tablet:text-xl">{formatPriceToBrl(price)}</span>
+      <span className="tablet:text-xl text-2xl font-semibold text-neutral-300">{formatPriceToBrl(price)}</span>
       {matchedVariant?.compareAtPrice?.amount > price && (
         <span className="text-sm font-semibold text-neutral-400 line-through">
           {formatPriceToBrl(matchedVariant?.compareAtPrice?.amount)}

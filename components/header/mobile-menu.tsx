@@ -6,8 +6,11 @@ export function MobileMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button aria-label="Menu">
-          <Menu />
+        <button
+          aria-label="Menu"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-800 text-neutral-400 hover:bg-neutral-900 hover:text-white"
+        >
+          <Menu className="w-5" />
         </button>
       </SheetTrigger>
       <SheetContent className="w-full max-w-[400px] border-black bg-white py-4">

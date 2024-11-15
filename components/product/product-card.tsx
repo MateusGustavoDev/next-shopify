@@ -21,7 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
       href={productUrl}
       className="relative flex flex-col rounded-lg border border-neutral-800 bg-neutral-900 hover:border-neutral-700"
     >
-      <div className="relative aspect-[370/320] w-full max-w-[370px] tablet:max-w-full">
+      <div className="tablet:max-w-full relative aspect-[370/320] w-full max-w-[370px]">
         {formattedColorOptions && (
           <ul className="absolute right-4 top-4 flex gap-2">
             {formattedColorOptions.map((color) => (

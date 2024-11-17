@@ -43,6 +43,11 @@ export const productFragment = /* GraphQL */ `
         }
       }
     }
+    metafields(identifiers: [{ namespace: "product", key: "condition" }]) {
+      id
+      key
+      value
+    }
     tags
     updatedAt
   }

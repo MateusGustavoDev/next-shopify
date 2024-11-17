@@ -6,8 +6,8 @@ import { TAGS } from '@/lib/constants'
 import {
   GetCollectionProductsQuery,
   GetProductByHandleQuery,
-  GetProductRecommendationsQuery,
   GetProductsAndVariantsQuery,
+  ProductRecommendationsQuery,
 } from '@/lib/shopify/graphql/generated'
 import { getCollectionProductsQuery } from '@/lib/shopify/graphql/queries/get-collection-products'
 import { getProductByHandleQuery } from '@/lib/shopify/graphql/queries/get-products-by-handle'
@@ -84,11 +84,15 @@ export async function getAllProducts({ cursor }: { cursor: string }): Promise<Ge
   }
 }
 
-export async function getProductRecommendations(productId: string) {
-  const { data, errors } = await shopifyFetch<GetProductRecommendationsQuery>({
+export async function getProductRecommendations(productHandle: string) {
+  const { data, errors } = await shopifyFetch<ProductRecommendationsQuery>({
     query: getProductRecommendationsQuery,
     variables: {
-      productId: productId,
+      productHandle: productHandle,
     },
   })
+
+  if (!data?.productRecommendations || errors) return undefined
+
+  return data.productRecommendations
 }

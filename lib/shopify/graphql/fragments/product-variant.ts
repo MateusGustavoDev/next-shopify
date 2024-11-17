@@ -20,6 +20,7 @@ export const productVariantFragment = /* GraphQL */ `
         }
         image {
           url
+          altText
         }
       }
     }

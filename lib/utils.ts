@@ -68,3 +68,10 @@ export function formateDateToBr(dataISO: string) {
     timeZone: 'UTC',
   }).format(data)
 }
+
+export function capitalizeWords(str: string) {
+  return str
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitaliza a primeira letra de cada palavra
+    .join(' ')
+}

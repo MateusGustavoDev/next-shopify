@@ -32,7 +32,7 @@ export function Gallery({ images, options, title }: GalleryProps) {
   return (
     <div className="tablet:p-4 relative flex h-max w-full justify-center rounded-xl border border-neutral-800 bg-neutral-900 p-10">
       {productImages.length > 1 && (
-        <ul className="absolute left-8 top-8 z-50 flex flex-col gap-2">
+        <ul className="absolute left-8 top-8 flex flex-col gap-2">
           {productImages?.map((image, index) => {
             const isActive = index === imageIndex
             const imageSearchParams = new URLSearchParams(searchParams.toString())

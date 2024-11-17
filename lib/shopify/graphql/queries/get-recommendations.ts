@@ -1,8 +1,8 @@
 import { productFragment } from '../fragments/product'
 
 export const getProductRecommendationsQuery = /* GraphQL */ `
-  query getProductRecommendations {
-    productRecommendations(productId: "gid://shopify/Product/123456789") {
+  query productRecommendations($productHandle: String) {
+    productRecommendations(productHandle: $productHandle) {
       ...Product
     }
   }

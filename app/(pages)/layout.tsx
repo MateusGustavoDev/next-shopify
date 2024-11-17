@@ -1,6 +1,6 @@
 import '@/app/globals.css'
 import { Header } from '@/components/header/header'
-import { Footer } from '@/components/footer'
+import { Footer } from '@/components/footer/footer'
 import { ReactNode } from 'react'
 
 interface PagesLayoutProps {

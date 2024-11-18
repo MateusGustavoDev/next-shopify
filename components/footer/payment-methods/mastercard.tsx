@@ -5,7 +5,7 @@ export function MasterCard({ size = 24 }: { size?: number }) {
 
   return (
     <svg width={width} height={height} viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_9_1682)">
+      <g clipPath="url(#clip0_9_1682)">
         <path
           d="M0 2C0 0.895431 0.895431 0 2 0H22C23.1046 0 24 0.895431 24 2V14C24 15.1046 23.1046 16 22 16H2C0.89543 16 0 15.1046 0 14V2Z"
           fill="#FDEACE"
@@ -22,7 +22,7 @@ export function MasterCard({ size = 24 }: { size?: number }) {
       </g>
       <defs>
         <clipPath id="clip0_9_1682">
-          <rect width="24" height="16" fill="white" />
+          <rect width={24} height={16} fill="white" />
         </clipPath>
       </defs>
     </svg>

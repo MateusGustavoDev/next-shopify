@@ -23,7 +23,7 @@ export function CartItem(props: CartItemProps) {
   const removeCartItemWithIds = removeCartItemAction.bind(null, props.cartId, props.id)
 
   return (
-    <div className="relative flex w-full gap-3 border-b border-neutral-800 py-3 pl-2">
+    <div className="relative flex w-full gap-3 border-b border-neutral-800 py-5 pl-2">
       <div className="relative h-20 w-20 shrink-0 rounded-lg border border-neutral-800 bg-neutral-900">
         <Image src={props.image} alt={props.title} fill sizes="96px" style={{ objectFit: 'contain', padding: '8px' }} />
         <form action={removeCartItemWithIds}>

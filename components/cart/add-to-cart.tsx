@@ -3,6 +3,7 @@ import { addProductToCartAction } from '@/app/actions/cart'
 import { ProductVariantType } from '@/lib/shopify/types'
 import { useSearchParams } from 'next/navigation'
 import { ActionButton } from '../action-button'
+import { ShoppingBag } from 'lucide-react'
 
 interface AddToCartProps {
   variants: ProductVariantType[]
@@ -50,8 +51,8 @@ export function AddToCartButton({ variants, availableForSale }: AddToCartProps) 
 
   return (
     <form action={handleAddProductToCart} className="w-full">
-      <ActionButton full shape="circle">
-        Adicionar ao carrinho
+      <ActionButton full size="md" icon={ShoppingBag}>
+        Adicionar ao Carrinho
       </ActionButton>
     </form>
   )

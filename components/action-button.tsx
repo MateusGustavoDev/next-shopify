@@ -4,17 +4,17 @@ import { useFormStatus } from 'react-dom'
 import { tv, VariantProps } from 'tailwind-variants'
 
 const button = tv({
-  base: 'w-max gap-2 aria-disabled:pointer-events-none  rounded-md flex justify-center items-center',
+  base: 'w-max gap-2 aria-disabled:pointer-events-none font-medium flex justify-center items-center',
   variants: {
     color: {
       primary:
         'bg-blue-600 hover:bg-blue-700 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
       secondary:
-        'bg-neutral-700 border border-neutral-600 hover:bg-neutral-600 text-neutral-500 data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
+        'bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 hover:text-neutral-300 data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
     },
     shape: {
       circle: 'rounded-full',
-      square: 'rounded-none',
+      square: 'rounded-md',
     },
     disabled: {
       true: 'pointer-events-none bg-neutral-200 text-neutral-700 border border-neutral-300',
@@ -76,17 +76,22 @@ export function ActionButton({ children, size, color, icon, svgOnly, shape, disa
       {pending ? (
         svgOnly ? (
           <div>
-            <Loader />
+            <Loader color={color} />
           </div>
         ) : (
           <>
-            <Loader size={size} />
+            <Loader size={size} color={color} />
             {children}
           </>
         )
       ) : svgOnly && icon ? (
         <div>
           <Icon icon={icon} color={color} />
+        </div>
+      ) : icon ? (
+        <div className="flex items-center gap-2">
+          <Icon icon={icon} color={color} />
+          {children}
         </div>
       ) : (
         children
@@ -96,24 +101,28 @@ export function ActionButton({ children, size, color, icon, svgOnly, shape, disa
 }
 
 const loader = tv({
-  base: 'animate-spin text-white',
+  base: 'animate-spin',
   variants: {
     size: {
       sm: 'h-4 w-4',
       md: 'h-4 w-4',
       lg: 'h-7 w-7 ',
     },
+    color: {
+      primary: 'text-white',
+      secondary: 'text-neutral-400',
+    },
   },
-
   defaultVariants: {
     size: 'md',
+    color: 'secondary',
   },
 })
 
 type LoaderProps = VariantProps<typeof loader>
 
-function Loader({ size }: LoaderProps) {
-  return <LoaderCircle className={loader({ size })} />
+function Loader({ size, color }: LoaderProps) {
+  return <LoaderCircle className={loader({ size, color })} />
 }
 
 const icon = tv({
@@ -121,7 +130,7 @@ const icon = tv({
   variants: {
     size: {
       sm: 'h-4 w-4',
-      md: 'h-4 w-4',
+      md: 'h-5 w-5',
       lg: 'h-7 w-7 ',
     },
     color: {

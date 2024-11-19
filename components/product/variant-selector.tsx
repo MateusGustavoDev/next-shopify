@@ -42,7 +42,7 @@ export function VariantSelector({ options, variants }: VariantSelectorProps) {
   const selectedColor = searchParams.get('cor')
 
   return (
-    <div className="mt-10 flex flex-col gap-4">
+    <div className="mt-10 flex flex-col gap-6 lg:mt-5">
       {formattedColorOptions && <ColorSelector colors={formattedColorOptions} selectedColor={selectedColor} />}
       {options.map((option) => {
         if (option.name === 'Cor') return null
@@ -137,7 +137,7 @@ function ColorSelector({ colors, selectedColor }: ColorSelectorProps) {
             <button
               key={color.name}
               data-active={selectedColor === color.name}
-              onClick={() => router.replace(urlWithColorOption)}
+              onClick={() => router.replace(urlWithColorOption, { scroll: false })}
               className="w-max rounded-full border border-transparent p-1 data-[active=true]:pointer-events-none data-[active=true]:border-blue-600"
             >
               <div className="h-6 w-6 rounded-full" style={{ backgroundColor: color.color }} />

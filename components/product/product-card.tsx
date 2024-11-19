@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {formattedColorOptions && (
           <ul className="absolute right-4 top-4 flex gap-2">
             {formattedColorOptions.map((color) => (
-              <li key={color.name} className="h-4 w-4 gap-2 rounded-full" style={{ backgroundColor: color.color }} />
+              <li key={color.name} className="h-3 w-3 gap-2 rounded-full" style={{ backgroundColor: color.color }} />
             ))}
           </ul>
         )}

@@ -8,8 +8,10 @@ export async function Recommendations({ productHandle }: { productHandle: string
   if (!data) return null
 
   return (
-    <div className="flex w-full flex-col gap-4">
-      <p className="w-max border-neutral-900 text-2xl font-semibold text-neutral-300 lg:text-xl">Você Pode Gostar</p>
+    <div className="flex w-full flex-col gap-7 px-5">
+      <p className="w-max border-neutral-900 text-center text-2xl font-semibold text-neutral-300 lg:text-xl">
+        Você Pode Gostar
+      </p>
       <Carousel
         opts={{
           align: 'start',
@@ -18,7 +20,7 @@ export async function Recommendations({ productHandle }: { productHandle: string
         <CarouselContent>
           {data.map((product) => {
             return (
-              <CarouselItem key={product.id} className="group w-full basis-1/4">
+              <CarouselItem key={product.id} className="group w-full basis-1/4 lg:basis-5/6">
                 <ProductCard product={product} />
               </CarouselItem>
             )

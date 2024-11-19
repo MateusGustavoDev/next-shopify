@@ -16,8 +16,6 @@ import { formatPriceToBrl, productVariantUrl, removeEdgesAndNodes } from '@/lib/
 import { searchProductsAction } from '@/app/actions/search'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { DEFAULT_OPTION } from '@/lib/constants'
-import { DialogOverlay } from '@radix-ui/react-dialog'
 
 export function SearchModal() {
   const [inputValue, setInputValue] = useState('')

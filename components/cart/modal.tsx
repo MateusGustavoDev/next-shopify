@@ -30,7 +30,7 @@ export async function CartModal() {
           <ShoppingBag className="w-5" />
         </button>
       </SheetTrigger>
-      <SheetContent className="w-full max-w-[430px] border-neutral-800 bg-black py-10 sm:max-w-full sm:border-none sm:py-7">
+      <SheetContent className="w-full max-w-[430px] border-neutral-800 bg-black py-10 sm:max-w-full sm:border-none sm:px-5 sm:py-7 sm:pt-5">
         <div className="flex items-center justify-between">
           <SheetHeader className="flex w-max flex-row items-center justify-center gap-2 rounded-full border-2 border-blue-600 px-4 py-2">
             <ShoppingCart className="w-5" />

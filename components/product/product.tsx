@@ -22,9 +22,9 @@ export async function Product({ handle }: ProductProps) {
   const productCondition = product.metafields.find((metafild) => metafild?.key === 'condition')
 
   return (
-    <div className="tablet:flex-col relative flex h-max w-full gap-5">
+    <div className="relative flex w-full justify-between lg:flex-col">
       <Gallery images={images} options={options} title={product.title} />
-      <div className="tablet:aspect-auto tablet:max-w-full tablet:gap-10 flex w-full max-w-[440px] flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-6">
+      <div className="flex min-h-[640px] w-[400px] flex-col justify-between lg:mt-5 lg:min-h-max lg:w-full lg:justify-start lg:px-5">
         <div>
           <div className="flex flex-col gap-3">
             <span className="block text-sm font-normal text-blue-500">
@@ -35,7 +35,7 @@ export async function Product({ handle }: ProductProps) {
             <Price amount={price} variants={variants} options={options} />
           </div>
           <VariantSelector variants={variants} options={options} />
-          <div className="mt-10 flex flex-col gap-4">
+          <div className="mt-10 flex flex-col gap-4 lg:mt-7">
             <p className="font-semibold text-neutral-300">Descrição</p>
             <p className="text-sm font-normal leading-7 text-neutral-400">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo.
@@ -44,7 +44,9 @@ export async function Product({ handle }: ProductProps) {
             </p>
           </div>
         </div>
-        <AddToCartButton variants={variants} availableForSale={product.availableForSale} />
+        <div className="flex gap-4 lg:mt-8">
+          <AddToCartButton variants={variants} availableForSale={product.availableForSale} />
+        </div>
       </div>
     </div>
   )

@@ -96,7 +96,7 @@ export function Footer() {
         </div>
       </Wrapper>
       <div className="w-full border-t border-neutral-800">
-        <Wrapper className="flex justify-between py-5 lg:flex-col-reverse lg:gap-7">
+        <Wrapper className="flex justify-between py-5 lg:flex-col-reverse lg:gap-8">
           <span className="text-sm text-neutral-400 lg:text-center">
             © 2024 | {SITE_NAME} | Todos os direitos reservados.
           </span>

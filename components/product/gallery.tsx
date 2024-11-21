@@ -88,7 +88,7 @@ export function Gallery({ images, options, title }: GalleryProps) {
         <CarouselContent className="relative -ml-0 w-full">
           {productImages.map((image) => (
             <CarouselItem key={image.url} className="w-full basis-full pl-0">
-              <div className="relative flex aspect-[300/350] w-full items-center bg-neutral-900">
+              <div className="relative flex aspect-[300/300] w-full items-center bg-neutral-900">
                 <Image src={image.url} alt={title} fill sizes="600px" style={{ objectFit: 'contain' }} />
               </div>
             </CarouselItem>

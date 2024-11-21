@@ -5,6 +5,7 @@ import { removeEdgesAndNodes } from '@/lib/utils'
 import { Price } from './price'
 import { getProductByHandle } from '@/app/actions/products'
 import { notFound } from 'next/navigation'
+import { Heart } from 'lucide-react'
 
 interface ProductProps {
   handle: string
@@ -27,10 +28,13 @@ export async function Product({ handle }: ProductProps) {
       <div className="flex min-h-[640px] w-[400px] flex-col justify-between lg:mt-5 lg:min-h-max lg:w-full lg:justify-start lg:px-5">
         <div>
           <div className="flex flex-col gap-3">
-            <span className="block text-sm font-normal text-blue-500">
-              {productCondition ? `${productCondition.value} |` : null}{' '}
-              {product.availableForSale ? 'Disponível' : 'Indisponível'}
-            </span>
+            <div className="flex w-full items-center justify-between">
+              <span className="block text-sm font-normal text-blue-500">
+                {productCondition ? `${productCondition.value} |` : null}{' '}
+                {product.availableForSale ? 'Disponível' : 'Indisponível'}
+              </span>
+              <Heart className="w-6 text-neutral-400" />
+            </div>
             <span className="tablet:text-xl text-3xl font-bold">{product.title}</span>
             <Price amount={price} variants={variants} options={options} />
           </div>

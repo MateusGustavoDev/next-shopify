@@ -6,8 +6,6 @@ import { resolve } from 'path'
 export async function Recommendations({ productHandle }: { productHandle: string }) {
   const data = await getProductRecommendations(productHandle)
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
   if (!data) return null
 
   return (

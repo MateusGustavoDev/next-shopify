@@ -44,7 +44,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="p-2 group-hover:hidden lg:group-hover:block"
         />
         <Image
-          src={images[1].node.url}
+          src={images.length > 1 ? images[1].node.url : images[0].node.url}
           alt={product.title}
           fill
           sizes="(max-width: 800px) 198px, 268px"

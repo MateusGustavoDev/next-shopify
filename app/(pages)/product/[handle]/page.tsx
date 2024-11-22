@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { ProductSkeleton } from '@/components/skeletons/product'
 import { Wrapper } from '@/components/wrapper'
 import { Recommendations } from '@/components/product/recommendations'
+import { CarouselSkeleton } from '@/components/skeletons/carousel'
 
 const { SITE_NAME } = process.env
 
@@ -24,14 +25,16 @@ export default async function ProductPage({ params }: Props) {
   const handle = (await params).handle
 
   return (
-    <Wrapper className="px-0">
+    <Wrapper className="px-0 lg:px-0">
       <div className="mt-10 w-full lg:mt-0">
         <Suspense fallback={<ProductSkeleton />}>
           <Product handle={handle} />
         </Suspense>
       </div>
-      <div className="mt-24">
-        <Recommendations productHandle={handle} />
+      <div className="mt-24 px-5 lg:px-4">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <Recommendations productHandle={handle} />
+        </Suspense>
       </div>
     </Wrapper>
   )

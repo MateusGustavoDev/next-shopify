@@ -25,7 +25,7 @@ export async function Product({ handle }: ProductProps) {
   return (
     <div className="relative flex w-full justify-between lg:flex-col">
       <Gallery images={images} options={options} title={product.title} />
-      <div className="flex min-h-[640px] w-[400px] flex-col justify-between lg:mt-5 lg:min-h-max lg:w-full lg:justify-start lg:px-5">
+      <div className="flex min-h-[640px] w-[440px] flex-col justify-between px-5 lg:mt-5 lg:min-h-max lg:w-full lg:justify-start lg:px-4">
         <div>
           <div className="flex flex-col gap-3">
             <div className="flex w-full items-center justify-between">

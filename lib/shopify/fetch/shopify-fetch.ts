@@ -50,8 +50,6 @@ export async function shopifyFetch<T>({
 
     const body = await result.json()
 
-    console.log(body)
-
     const errorParseResult = ErrorsSchema.safeParse(body)
 
     if (errorParseResult.success) {

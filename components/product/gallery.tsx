@@ -60,7 +60,7 @@ export function Gallery({ images, options, title }: GalleryProps) {
                 <button
                   onClick={() => router.replace(createUrl(pathname, imageSearchParams), { scroll: false })}
                   data-active={isActive}
-                  className="relative flex h-[70px] w-[70px] items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 hover:border-neutral-600 data-[active=true]:pointer-events-none data-[active=true]:border-blue-600 sm:h-[60px] sm:w-[60px]"
+                  className="relative flex h-[90px] w-[90px] items-center justify-center rounded-lg border border-neutral-700 bg-neutral-800 hover:border-neutral-600 data-[active=true]:pointer-events-none data-[active=true]:border-blue-600 sm:h-[60px] sm:w-[60px]"
                 >
                   <Image src={image.url} alt={title} fill style={{ objectFit: 'contain', padding: '8px' }} />
                 </button>

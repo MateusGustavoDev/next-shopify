@@ -21,7 +21,7 @@ export async function ProductsCarousel({ collection }: CollectionProps) {
     >
       <div className="flex w-full justify-between">
         <div className="item flex w-full items-center justify-between gap-3">
-          <p className="w-max border-neutral-900 text-2xl font-semibold uppercase text-neutral-300 lg:text-xl">
+          <p className="w-max border-neutral-900 text-2xl font-bold uppercase text-neutral-300 lg:text-xl">
             {data.title}
           </p>
           <Link href={`/collections/${data.handle}`} className="text-sm font-medium text-blue-500 hover:text-blue-600">

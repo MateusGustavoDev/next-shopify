@@ -11,7 +11,7 @@ interface ProductListProps {
 export function ProductList({ products, onLoadMore, hasNextPage }: ProductListProps) {
   return (
     <div className="flex w-full max-w-[1138px] flex-col justify-center">
-      <ul className="grid w-full grid-cols-3 gap-5 mobile:grid-cols-1 tablet:grid-cols-2 mobile:tablet:grid-cols-none">
+      <ul className="grid w-full grid-cols-3 gap-5 sm:grid-cols-1 xl:grid-cols-2 sm:xl:grid-cols-1">
         {products.map((product) => (
           <li key={product.id}>
             <ProductCard product={product} />

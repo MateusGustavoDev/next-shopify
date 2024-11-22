@@ -1,6 +1,6 @@
 'use server'
 import { shopifyFetch } from '@/lib/shopify/fetch/shopify-fetch'
-import { SearchProductsType } from '@/lib/shopify/types'
+import { ProductType, SearchProductsType } from '@/lib/shopify/types'
 import { SearchProductsQuery } from '@/lib/shopify/graphql/generated'
 import { searchProductsQuery } from '@/lib/shopify/graphql/queries/search-products'
 import { removeEdgesAndNodes } from '@/lib/utils'
@@ -30,7 +30,7 @@ export async function searchProductsAction({
   }
 
   return {
-    products: removeEdgesAndNodes(data.search),
+    products: removeEdgesAndNodes(data.search) as ProductType[],
     pageInfo: data.search.pageInfo,
   }
 }

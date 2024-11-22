@@ -7,8 +7,7 @@ const button = tv({
   base: 'w-max gap-2 aria-disabled:pointer-events-none font-medium flex justify-center items-center',
   variants: {
     color: {
-      primary:
-        'bg-blue-600 hover:bg-blue-700 text-white data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
+      primary: 'bg-blue-600 hover:bg-blue-700 text-white data-[pending=true]:bg-blue-800',
       secondary:
         'bg-neutral-800 border border-neutral-700 hover:bg-neutral-700 hover:text-neutral-300 data-[pending=true]:text-neutral-300 data-[pending=true]:bg-neutral-800',
     },
@@ -65,6 +64,7 @@ type ActionButtonProps = VariantProps<typeof button> & {
 
 export function ActionButton({ children, size, color, icon, svgOnly, shape, disabled, full }: ActionButtonProps) {
   const { pending } = useFormStatus()
+  // const pending = true
 
   return (
     <button
@@ -101,7 +101,7 @@ export function ActionButton({ children, size, color, icon, svgOnly, shape, disa
 }
 
 const loader = tv({
-  base: 'animate-spin',
+  base: 'animate-spin text-red-500',
   variants: {
     size: {
       sm: 'h-4 w-4',
@@ -115,7 +115,7 @@ const loader = tv({
   },
   defaultVariants: {
     size: 'md',
-    color: 'secondary',
+    color: 'primary',
   },
 })
 

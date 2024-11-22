@@ -22,7 +22,7 @@ export default function HomePage() {
         <Image fill src={banner_mobile} alt="" className="hidden lg:block" />
       </div>
       <div className="mt-10">
-        <div className="flex w-full flex-col gap-5">
+        <div className="flex w-full flex-col gap-8">
           <Suspense fallback={<CarouselSkeleton />}>
             <ProductsCarousel collection="mais-vendidos" />
           </Suspense>

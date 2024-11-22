@@ -1,28 +1,16 @@
 import { Skeleton } from '../ui/skeleton'
+import { ProductCardSkeleton } from './product-card'
 
 export function ProductListSkeleton() {
   return (
     <div className="flex w-full max-w-[1138px] flex-col justify-center">
-      <ul className="flex w-full flex-wrap gap-3">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+      <ul className="grid w-full grid-cols-3 gap-5 sm:grid-cols-1 xl:grid-cols-2 sm:xl:grid-cols-1">
+        {[...Array(8)].map((_, index) => (
+          <li key={index}>
+            <ProductCardSkeleton />
+          </li>
+        ))}
       </ul>
-    </div>
-  )
-}
-
-function Item() {
-  return (
-    <div className="flex flex-col gap-2 pb-14">
-      <Skeleton className="h-[368px] w-[368px]" />
-      <div className="flex flex-col gap-2">
-        <Skeleton className="h-5 w-[200px]" />
-        <Skeleton className="h-4 w-[100px]" />
-      </div>
     </div>
   )
 }

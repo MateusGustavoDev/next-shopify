@@ -6,7 +6,7 @@ export const getCollectionProductsQuery = /* GraphQL */ `
     collection(handle: $handle) {
       title
       handle
-      products(first: 5, after: $cursor) {
+      products(first: 10, after: $cursor) {
         edges {
           node {
             ...Product

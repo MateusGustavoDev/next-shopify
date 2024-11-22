@@ -3,7 +3,7 @@ import { productFragment } from '../fragments/product'
 
 export const getAllProductsQuery = /* GraphQL */ `
   query getProductsAndVariants($cursor: String) {
-    products(first: 5, after: $cursor) {
+    products(first: 10, after: $cursor) {
       edges {
         cursor
         node {

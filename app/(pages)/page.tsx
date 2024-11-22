@@ -27,7 +27,7 @@ export default function HomePage() {
             <ProductsCarousel collection="mais-vendidos" />
           </Suspense>
           <div className="relative aspect-[1400/400] w-full overflow-hidden rounded-md border-neutral-700 lg:mt-0 lg:aspect-[992/400]">
-            <Image fill src={banner_fones} alt="" />
+            <Image fill src={banner_fones} alt="" className="lg:hidden" />
             <Image fill src={banner_fones_mobile} alt="" className="hidden lg:block" />
           </div>
           <Suspense fallback={<CarouselSkeleton />}>

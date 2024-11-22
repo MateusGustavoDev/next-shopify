@@ -29,7 +29,7 @@ export function ProductCard({ product }: ProductCardProps) {
     >
       <div className="relative flex aspect-[300/300] items-center justify-center">
         {formattedColorOptions && (
-          <ul className="absolute left-4 top-4 flex gap-2">
+          <ul className="absolute left-4 top-4 z-40 flex gap-2">
             {formattedColorOptions.map((color) => (
               <li key={color.name} className="h-4 w-4 gap-2 rounded-full" style={{ backgroundColor: color.color }} />
             ))}

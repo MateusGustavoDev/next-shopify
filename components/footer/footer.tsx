@@ -101,13 +101,13 @@ export function Footer() {
             © 2024 | {SITE_NAME} | Todos os direitos reservados.
           </span>
           <div className="flex gap-4 text-sm text-neutral-400 lg:flex-col">
-            <Link href="/legal/privacy-policy" className="hover:text-white">
+            <Link href="" className="hover:text-white">
               Política de privacidade
             </Link>
-            <Link href="/legal/terms" className="hover:text-white">
+            <Link href="" className="hover:text-white">
               Termos de Uso
             </Link>
-            <Link href="/legal/terms" className="hover:text-white">
+            <Link href="" className="hover:text-white">
               Cookies
             </Link>
           </div>

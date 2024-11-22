@@ -1,6 +1,6 @@
 'use client'
 import { updateItemQuantityAction } from '@/app/actions/cart'
-import { LoaderCircle, MinusIcon, PlusIcon } from 'lucide-react'
+import { Loader, LoaderCircle, MinusIcon, PlusIcon } from 'lucide-react'
 import { useFormStatus } from 'react-dom'
 
 interface EditItemQuantityProps {
@@ -60,7 +60,7 @@ export function Button({ type, disabled }: ButtonProps) {
   if (pending)
     return (
       <div className="flex w-6 items-center justify-center">
-        <LoaderCircle className="w-4 animate-spin text-neutral-400" />
+        <Loader className="w-4 animate-spin text-neutral-400" />
       </div>
     )
 

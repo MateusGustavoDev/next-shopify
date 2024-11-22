@@ -1,4 +1,4 @@
-import { ChevronDown, Filter } from 'lucide-react'
+import { Filter } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
 
 export function ProductFilter() {

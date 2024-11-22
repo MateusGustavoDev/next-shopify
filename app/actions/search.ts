@@ -21,7 +21,7 @@ export async function searchProductsAction({
     variables: {
       query: query,
       cursor: cursor,
-      numOfResults: numOfResults ? numOfResults : 5,
+      numOfResults: numOfResults ? numOfResults : 9,
     },
   })
 

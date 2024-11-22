@@ -1,4 +1,4 @@
-import { LoaderCircle } from 'lucide-react'
+import { Loader, LoaderCircle } from 'lucide-react'
 import { ElementType, ReactNode } from 'react'
 import { useFormStatus } from 'react-dom'
 import { tv, VariantProps } from 'tailwind-variants'
@@ -76,11 +76,11 @@ export function ActionButton({ children, size, color, icon, svgOnly, shape, disa
       {pending ? (
         svgOnly ? (
           <div>
-            <Loader color={color} />
+            <LoaderIcon color={color} />
           </div>
         ) : (
           <>
-            <Loader size={size} color={color} />
+            <LoaderIcon size={size} color={color} />
             {children}
           </>
         )
@@ -121,8 +121,8 @@ const loader = tv({
 
 type LoaderProps = VariantProps<typeof loader>
 
-function Loader({ size, color }: LoaderProps) {
-  return <LoaderCircle className={loader({ size, color })} />
+function LoaderIcon({ size, color }: LoaderProps) {
+  return <Loader className={loader({ size, color })} />
 }
 
 const icon = tv({

@@ -10,7 +10,7 @@ export async function Recommendations({ productHandle }: { productHandle: string
 
   return (
     <div className="flex w-full flex-col gap-7">
-      <p className="w-max border-neutral-900 text-center text-2xl font-semibold text-neutral-300 lg:text-xl">
+      <p className="w-max border-neutral-900 text-center text-2xl font-semibold uppercase text-neutral-300 lg:text-xl">
         Você Pode Gostar
       </p>
       <Carousel

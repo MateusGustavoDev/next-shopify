@@ -5,6 +5,8 @@ import { CollectionProducts } from './collection-products'
 export async function InitialCollectionProducts({ handle }: { handle: string }) {
   const collection = await getCollectionProducts({ collection: handle })
 
+  console.log(collection)
+
   if (!collection) notFound()
 
   return <CollectionProducts collection={collection} />

@@ -32,15 +32,15 @@ export async function getCollectionProducts({
     },
   })
 
-  if (!data?.collection || errors) {
+  if (!data?.collectionByHandle || errors) {
     return undefined
   }
 
   return {
-    title: data.collection.title,
-    handle: data.collection.handle,
-    products: removeEdgesAndNodes(data.collection.products),
-    pageInfo: data.collection.products.pageInfo,
+    title: data.collectionByHandle.title,
+    handle: data.collectionByHandle.handle,
+    products: removeEdgesAndNodes(data.collectionByHandle.products),
+    pageInfo: data.collectionByHandle.products.pageInfo,
   }
 }
 

@@ -25,7 +25,7 @@ export async function getCollectionProducts({
 }: GetCollectionProducts): Promise<CollectionProductsType | undefined> {
   const { data, errors } = await shopifyFetch<GetCollectionProductsQuery>({
     query: getCollectionProductsQuery,
-    tags: [TAGS.products],
+    tags: [TAGS.collections],
     variables: {
       handle: collection,
       cursor: cursor,

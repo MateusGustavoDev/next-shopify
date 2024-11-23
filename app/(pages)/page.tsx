@@ -31,7 +31,7 @@ export default function HomePage() {
             <Image fill src={banner_fones_mobile} alt="" className="hidden lg:block" />
           </div>
           <Suspense fallback={<CarouselSkeleton />}>
-            <ProductsCarousel collection="Watches" />
+            <ProductsCarousel collection="smartphones" />
           </Suspense>
         </div>
       </div>

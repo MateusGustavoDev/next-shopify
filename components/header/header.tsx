@@ -29,8 +29,11 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/collections/watches" className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white">
-                Watches
+              <Link
+                href="/collections/mais-vendidos"
+                className="rounded-md p-2 px-4 hover:bg-neutral-900 hover:text-white"
+              >
+                Mais Vendidos
               </Link>
             </li>
             <li>

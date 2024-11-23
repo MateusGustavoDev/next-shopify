@@ -36,12 +36,12 @@ export function MobileMenu() {
             </li>
             <li className="rounded-md py-4 text-sm text-neutral-300">
               <SheetClose asChild>
-                <Link href="/collections/watches">Watches</Link>
+                <Link href="/collections/mais-vendidos">Mais Vendidos</Link>
               </SheetClose>
             </li>
             <li className="rounded-md py-4 text-sm text-neutral-300">
               <SheetClose asChild>
-                <Link href="/collections/mais-vendidos">Mais Vendidos</Link>
+                <Link href="/collections/novidades">Novidades</Link>
               </SheetClose>
             </li>
             <li className="rounded-md py-4 text-sm text-neutral-300">

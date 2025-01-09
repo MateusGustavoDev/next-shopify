@@ -14,4 +14,4 @@ Shopify webhooks to revalidate cache.
 - Account creation and login
 - View order history
 
-Deploy: next-shopify-gamma.vercel.app
+Deploy: [next-shopify-gamma.vercel.app](https://next-shopify-gamma.vercel.app/)
